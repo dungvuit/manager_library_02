@@ -42,6 +42,10 @@ en:
         sign_up: "Sign Up"
         new_user: "New user"
         remember_me: "Remember me on this computer"
+      edits:
+        edit_user: "Edit user"
+        save: "Save changes"
+        profile: "Update your profile"
     home:
       title: "Welcome to Open Library"
     footer:
@@ -51,8 +55,11 @@ en:
   helpers:
     base_title: "Open Library"
   controllers:
+    applications:
+      please: "Please log in."
     users:
       create_success: "Welcome to the Open Library"
       user_not_exist: "User not exist"
+      edit_success: "Profile updated"
     sessions:
       create_faild: "Invalid email/password combination"
