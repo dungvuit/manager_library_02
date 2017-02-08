@@ -20,4 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  views:
+    header:
+      search: "Search"
+      home: "Home"
+      login: "Login"
+      placeholder: "Search Book ..."
+    home:
+      title: "Welcome to Open Library"
+    footer:
+      made_by: "Make By Team Ruby5"
+      about: "About"
+      contact: "Contact"
+  helpers:
+    base_title: "Open Library"
