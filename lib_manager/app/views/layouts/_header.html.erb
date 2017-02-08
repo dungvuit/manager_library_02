@@ -1,0 +1,19 @@
+<header class="navbar navbar-fixed-top" id="header">
+  <div class="container">
+    <div class="brand side-left col-xs-3">
+      <%= link_to image_tag("logo.png", height: "80px"), root_path %>
+    </div>
+    <nav class="side-right col-xs-9">
+      <div class="form-search">
+        <%= form_for :search, url: "#" do |f| %>
+          <%= f.text_field :name, placeholder: t("views.header.placeholder") %>
+        <% end %>
+      </div>
+      <ul class="nav navbar-nav navbar-right list-item">
+        <li><%= link_to t("views.header.home"), "#" %></li>
+        <li><%= link_to t("views.header.login"), "#" %></li>
+      </ul>
+    </nav>
+    <div class="clearfix"></div>
+  </div>
+</header>
