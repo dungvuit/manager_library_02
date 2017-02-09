@@ -42,7 +42,48 @@
     }
   }
 }
+.main-body{
+  margin-top: 100px;
+  .user-form{
+    h1{
+      text-align: center;
+    }
+    input, textarea, select, .uneditable-input {
+      border: 1px solid #bbb;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    input {
+      height: auto !important;
+    }
+    .checkbox {
+      margin-left: 20px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      span {
+        margin-left: 10px;
+        font-weight: normal;
+      }
+    }
+  }
+  #errors_panel{
+    .error_explanation {
+      color: red;
+      ul {
+        color: red;
+        margin: 0 0 30px 0;
+      }
+    }
+    .field_with_errors {
+      @extend .has-error;
+      .form-control {
+        color: red;
+      }
+    }
+  }
+}
 #footer{
+  background: #F9F9F9;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
@@ -64,7 +105,4 @@
       margin-left: 15px;
     }
   }
-}
-.main-body{
-  margin-top: 100px;
 }

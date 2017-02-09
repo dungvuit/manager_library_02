@@ -26,6 +26,22 @@ en:
       home: "Home"
       login: "Login"
       placeholder: "Search Book ..."
+      mybook: "My Book"
+      profile: "Profile"
+      setting: "Setting"
+      logout: "Log out"
+    user:
+      signup:
+        sign_up: "Sign Up"
+        create_user: "Create User"
+        confirmation: "Confirmation"
+        errors_contain: "The form contains"
+        error: "error"
+      signins:
+        login: "Log in"
+        sign_up: "Sign Up"
+        new_user: "New user"
+        remember_me: "Remember me on this computer"
     home:
       title: "Welcome to Open Library"
     footer:
@@ -34,3 +50,9 @@ en:
       contact: "Contact"
   helpers:
     base_title: "Open Library"
+  controllers:
+    users:
+      create_success: "Welcome to the Open Library"
+      user_not_exist: "User not exist"
+    sessions:
+      create_faild: "Invalid email/password combination"
