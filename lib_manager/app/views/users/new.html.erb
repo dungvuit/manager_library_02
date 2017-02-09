@@ -1,31 +1,11 @@
 <% provide :title, t("views.user.signup.sign_up") %>
+<% provide :button_text, t("views.user.signup.create_user") %>
+
 <div id="new_form" class="user-form">
   <h1><%= t "views.user.signup.sign_up"%></h1>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <%= form_for @user do |f| %>
-        <%= render "/shared/error_messages"%>
-
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control" %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control" %>
-
-        <%= f.label :password_confirmation, t("views.user.signup.confirmation") %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
-
-        <%= f.label :address %>
-        <%= f.email_field :address, class: "form-control" %>
-
-        <%= f.label :phonenumber %>
-        <%= f.email_field :phonenumber, class: "form-control" %>
-
-        <%= f.submit t("views.user.signup.create_user"), class: "btn btn-primary" %>
-      <% end %>
+      <%= render "form_user" %>
     </div>
   </div>
 </div>
