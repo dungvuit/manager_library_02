@@ -3,6 +3,7 @@
 #header{
   padding: 10px 0px;
   background: #F9F9F9;
+  border-bottom: 1px solid #eee;
   .side-left{
     float: left;
     display: inline-block;
@@ -43,7 +44,7 @@
   }
 }
 .main-body{
-  margin-top: 100px;
+  margin-top: 140px;
   .user-form{
     h1{
       text-align: center;
@@ -78,6 +79,40 @@
       @extend .has-error;
       .form-control {
         color: red;
+      }
+    }
+  }
+  #book{
+    .list-categories{
+      list-style: none;
+      background: #F9F9F9;
+      padding-left: 0px;
+      a{
+        color: black;
+        &:hover{
+          text-decoration: none;
+          color: #5fcf80;
+        }
+        li{
+          padding: 15px;
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+    .list-books{
+      .block-book{
+        a{
+          &:hover{
+            text-decoration: none;
+            .caption{
+              color: #5fcf80 !important;
+            }
+          }
+          .block{
+            min-height: 250px;
+            text-align: center;
+          }
+        }
       }
     }
   }
