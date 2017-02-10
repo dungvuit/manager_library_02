@@ -46,6 +46,10 @@ en:
         edit_user: "Edit user"
         save: "Save changes"
         profile: "Update your profile"
+    books:
+      title: "Book"
+      not_exist_book: "Not exist book in Category"
+      all_category: "All category"
     home:
       title: "Welcome to Open Library"
     footer:
@@ -61,5 +65,7 @@ en:
       create_success: "Welcome to the Open Library"
       user_not_exist: "User not exist"
       edit_success: "Profile updated"
+    books:
+      category_not_exist: "Category not exist"
     sessions:
       create_faild: "Invalid email/password combination"

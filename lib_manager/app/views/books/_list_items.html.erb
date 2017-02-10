@@ -1,0 +1,18 @@
+<% @books.each_slice Settings.slice do |list_books| %>
+  <div class="row">
+    <% list_books.each do |book| %>
+      <div class="block-book col-xs-3">
+        <%= link_to book_path book do %>
+          <div class="block thumbnail">
+            <div class="image">
+              <%= image_tag "demo.jpg", size: Settings.size %>
+            </div>
+            <div class="caption">
+              <%= book.name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<% provide :title, t("views.books.title") %>
+<div id="book">
+  <div class="col-xs-3">
+    <ul class="list-categories">
+      <%= link_to books_path do %>
+        <li><%= t "views.books.all_category" %></li>
+      <% end %>
+      <% @categories.each do |category| %>
+        <%= link_to category_books_path category do %>
+          <li><%= category.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-xs-9">
+    <div class="list-books">
+      <% if @books %>
+        <%= render "list_items" %>
+        <div class="pagination">
+          <%= will_paginate @books  %>
+        </div>
+      <% else %>
+        <h3><% t "views.books.not_exist_book" %></h3>
+      <% end %>
+    </div>
+  </div>
+</div>
