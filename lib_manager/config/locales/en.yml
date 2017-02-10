@@ -76,6 +76,12 @@ en:
       title: "Book"
       not_exist_book: "Not exist book in Category"
       all_category: "All category"
+      indexs:
+        button_search: "Search"
+        input_name: "Input Book Name"
+        input_author: "Input Book Author"
+        input_category: "Input Book Category"
+        input_publisher: "Input Book Publisher"
       shows:
         author: "Author :"
         publisher: "Publisher :"
