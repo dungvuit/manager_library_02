@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  include CheckObject
+
   before_action :logged_in_user, only: [:show, :edit, :update]
-  before_action :find_user, only: [:show, :edit, :update]
+  before_action :check_user_exist, only: [:show, :edit, :update]
 
   def show
   end
@@ -38,12 +40,9 @@ class UsersController < ApplicationController
       :password_confirmation, :name, :address, :phonenumber
   end
 
-  def find_user
+  def check_user_exist
     @user = User.find_by id: params[:id]
-    unless @user
-      flash[:danger] = t "controllers.users.user_not_exist"
-      redirect_to users_path
-    end
+    check_object @user
   end
 
   def correct_user
