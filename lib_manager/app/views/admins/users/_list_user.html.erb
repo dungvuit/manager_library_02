@@ -1,0 +1,31 @@
+<thead>
+  <tr>
+    <th><%= t "views.form.id" %></th>
+    <th><%= t "views.form.name" %></th>
+    <th><%= t "views.form.email" %></th>
+    <th><%= t "views.form.phonenumber" %></th>
+    <th><%= t "views.form.address" %></th>
+    <th><%= t "views.form.type" %></th>
+    <th class="action"></th>
+  </tr>
+</thead>
+<tbody>
+  <% @users.each do |user| %>
+    <tr class="background-tr">
+      <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.phonenumber %></td>
+      <td><%= user.address %></td>
+      <td><%= user.is_admin %></td>
+      <td>
+        <%= link_to edit_admins_user_path user do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+        <% end %>
+        <%= link_to admins_user_path(user), method: :delete do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

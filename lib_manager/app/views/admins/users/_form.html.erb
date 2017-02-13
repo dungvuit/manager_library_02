@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :name, t("views.form.name"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :email, class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :email, class: "form-control" %>
+      </div> 
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :password, class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :password_confirmation,
+          t("views.form.confirmation"), class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.password_field :password_confirmation,
+          class: "form-control" %> 
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :phonenumber, t("views.form.phonenumber"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :phonenumber, class: "form-control" %>
+      </div>  
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :address, t("views.form.address"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :is_admin, t("views.form.type"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :is_admin, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6 col-md-offset-4">
+        <%= f.submit yield(:button_text), class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>

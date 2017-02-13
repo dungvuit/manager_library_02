@@ -1,0 +1,46 @@
+<div class="header">
+  <div class="container">
+    <div class="logo pull-left">
+        <%= link_to image_tag("logo.png"), "#" %>
+    </div>
+    <div class="account pull-right">
+      <div class="username">
+        <%= link_to "#" do %>
+          <span>
+            <%= t "views.menu.admin" %>
+            <i class="glyphicon glyphicon-triangle-bottom"></i>
+          </span>
+        <% end %>
+      </div>
+      <ul>
+        <li>
+          <%= link_to "#" do %>
+            <i class="glyphicon glyphicon-log-out"></i>
+            <%= t "views.menu.logout" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<div class="menu-header">
+  <div class="container">
+    <div class="menu-left">
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+            <i class="glyphicon glyphicon-home"></i>
+            <%= t "views.menu.home" %>
+          <% end %>
+        </li>
+        <li class="actived"><%= link_to t("views.menu.manager_user"), admins_users_path %></li>
+        <li><%= link_to t("views.menu.manager_author"), "#" %></li>
+        <li><%= link_to t("views.menu.manager_publisher"), "#" %></li>
+        <li><%= link_to t("views.menu.manager_category"), "#" %></li>
+        <li><%= link_to t("views.menu.manager_book"), "#" %></li>
+        <li><%= link_to t("views.menu.manager_borrow"), "#" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
