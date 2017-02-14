@@ -1,5 +1,14 @@
 <% provide :title, t("views.books.title") %>
 <div id="book">
+  <div class="search-form">
+    <%= form_for :search, url: books_path, method: "get" do |f| %>
+      <%= f.text_field :book_name, placeholder: t("views.books.indexs.input_name") %>
+      <%= f.text_field :author_name, placeholder: t("views.books.indexs.input_author") %>
+      <%= f.text_field :category_name, placeholder: t("views.books.indexs.input_category") %>
+      <%= f.text_field :publisher_name, placeholder: t("views.books.indexs.input_publisher") %>
+      <%= f.submit t("views.books.indexs.button_search"), class: "btn btn-primary submit" %>
+    <% end %>
+  </div>
   <div class="col-xs-3">
     <ul class="list-categories">
       <%= link_to books_path, data: {remote: true} do %>
@@ -14,7 +23,7 @@
   </div>
   <div class="col-xs-9">
     <div class="list-books">
-      <% if @books %>
+      <% if @books.present? %>
         <%= render "list_items" %>
         <div class="pagination">
           <%= will_paginate @books  %>

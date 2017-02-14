@@ -19,7 +19,7 @@ gem "bcrypt", "3.1.11"
 gem "faker"
 gem "config"
 gem "will_paginate"
-gem "bootstrap-will_paginate"
+gem "carrierwave"
 
 group :development, :test do
   gem "byebug", platform: :mri

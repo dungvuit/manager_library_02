@@ -9,4 +9,11 @@ class Book < ApplicationRecord
   has_many :authors, through: :relationships, source_type: Author.name, source: :ownerable
 
   belongs_to :publisher
+
+  scope :search_book, -> book_name, author_name, category_name, publisher_name do
+    where("books.name LIKE ?","%#{book_name}%").joins(:authors)
+    .where("authors.name LIKE ?", "%#{author_name}%")
+    .joins(:categories).where("categories.name LIKE ?", "%#{category_name}%")
+    .joins(:publisher).where "publishers.name LIKE ?","%#{publisher_name}%"
+  end
 end
