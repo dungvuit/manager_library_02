@@ -24,6 +24,14 @@ en:
     modal:
       close: "Close"
       title_details: "Book Details"
+    admins:
+      borrow_books:
+        shows:
+          change_status: "Change status"
+          overdue: "Overdue"
+          btn_accept: "Accept"
+          btn_reject: "Reject"
+          btn_return: "Return"
     menu:
       home: "Home"
       admin: "Admin"
@@ -78,6 +86,7 @@ en:
       show: "List User"
       show_book: "List Book"
       show_publisher: "List Publisher"
+      list_book_borrowing: "List Book Borrowing"
       create: "Create"
       export: "Export"
       signup:
@@ -113,6 +122,9 @@ en:
           date_return: "Date Return"
           status: "Status"
           reserve_day: "Reserve Day"
+          reject: "Reject"
+          pending: "Pending"
+          borrowing: "Borrowing" 
     books:
       title: "Book"
       not_exist_book: "Not exist book in Category"
@@ -141,6 +153,7 @@ en:
         borrow_this_book: "Borrow This Book"
         input_date: "Input Date Return :"
         button_borrow: "Borrow"
+        user_can_borrow_book: "You can borow this book. Because You overdue 3 time"
     home:
       title: "Welcome to Open Library"
     footer:
@@ -184,3 +197,7 @@ en:
         danger:
           create: "Borrow Book Faild"
           delete: "Deleted Faild"
+  models:
+    borrow_books:
+      add_errors_return: "should be large than today"
+      add_errors_return_nil: Date return cant nil

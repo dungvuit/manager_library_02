@@ -1,0 +1,34 @@
+<% provide :title, t("views.user.list_book_borrowing") %>
+<div class="main-content">
+  <div class="container">
+    <div class="info-manager">
+      <div class="title-manager pull-left">
+        <h2><%= t "views.user.list_book_borrowing" %></h2>
+      </div>
+      <div class="button-manager pull-right">
+        <ul>
+          <li>
+            <%= link_to "#" do %>
+              <i class="glyphicon glyphicon-plus"></i>
+              <%= t "views.user.create" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="glyphicon glyphicon-export"></i>
+              <%= t "views.user.export" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="table">
+      <%= will_paginate %>
+      <table class="table table-bordered table-hover">
+       <%= render "list_book" %>
+      </table>
+      <%= will_paginate %>
+    </div>
+  </div>
+</div>

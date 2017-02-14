@@ -14,11 +14,17 @@
         <td><%= borrow_book.book.name %></td>
         <td><%= borrow_book.date_borrow %></td>
         <td><%= borrow_book.date_return %></td>
-        <td><%= borrow_book.status %></td>
-        <td><%= (borrow_book.date_return - Date.today).to_i %></td>
+        <td>
+          <%= t "views.users.shows.list_books.#{borrow_book.status}" %>
+        </td>
+        <td>
+          <%= reserve_day borrow_book %>
+        </td>
+        <td>
         <% unless borrow_book.borrowing? %>
           <td>
-            <%= link_to user_borrow_book_path(current_user, borrow_book), method: :delete do %>
+            <%= link_to user_borrow_book_path(current_user, borrow_book),
+              method: :delete do %>
               <i class="glyphicon glyphicon-trash"></i>
             <% end %>
           </td>

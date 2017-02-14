@@ -6,3 +6,5 @@ size_avatar: "60x60"
 size_area: "80x5"
 size_image: "50"
 size_image_cover: "250x350"
+overdue: 3
+borrow: 1

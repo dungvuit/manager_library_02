@@ -3,6 +3,7 @@ class BorrowBooksController < ApplicationController
 
   before_action :find_user, only: [:create, :destroy]
   before_action :find_book, only: [:create]
+  before_action :find_relationship_borrow, only: :destroy
 
   def create
     @borrow = @user.borrow_books.build borrow_book_params
@@ -11,12 +12,14 @@ class BorrowBooksController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = t "controllers.borrow_books.flashs.danger.create"
-      redirect_to @book
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 
   def destroy
-    find_relationship_borrow
     type = @book_borrow.destroy ? "success" : "danger"
     flash[:"#{type}"] = t "controllers.borrow_books.flashs.success.delete"
     redirect_to @user

@@ -26,5 +26,6 @@ Rails.application.routes.draw do
     resources :users, except: [:new]
     resources :books, except: [:new]
     resources :publishers, except: [:new]
+    resources :borrow_books, only: [:index, :update, :destroy]
   end
 end
