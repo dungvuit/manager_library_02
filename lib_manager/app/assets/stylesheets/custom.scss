@@ -125,16 +125,41 @@
     }
     .list-books {
       .block-book {
-        a {
-          &:hover {
-            text-decoration: none;
-            .caption {
-              color: #5fcf80 !important;
-            }
+        .block {
+          min-height: 180px;
+          .image {
+            margin-top: 15px;
           }
-          .block {
-            min-height: 250px;
-            text-align: center;
+          .caption {
+            padding-left: 20px;
+            .author {
+              span {
+                display: inline-block;
+                ul {
+                  padding-left: 0px;
+                  list-style: none;
+                }
+              }
+            }
+            .category {
+              span {
+                display: inline-block;
+                ul {
+                  padding-left: 0px;
+                  list-style: none;
+                }
+              }
+            }
+            a {
+              &:hover {
+                text-decoration: none;
+                color: #5fcf80
+              }
+              .block {
+                min-height: 250px;
+                text-align: center;
+              }
+            }
           }
         }
       }

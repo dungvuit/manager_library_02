@@ -2,7 +2,7 @@
 <div id="book-show">
   <div class="row">
     <div class="cover col-xs-4">
-      <%= image_tag "demo.jpg" %>
+      <%= image_for @book , size: Settings.size_image_cover %>
     </div>
     <div class="content col-xs-8">
       <h3><%= @book.name %></h3>
