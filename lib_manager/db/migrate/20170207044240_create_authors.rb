@@ -6,6 +6,8 @@ class CreateAuthors < ActiveRecord::Migration[5.0]
       t.string :address
       t.string :description
       t.integer :publisher_id
+      t.string :image
+      
       t.timestamps
     end
   end
