@@ -1,0 +1,30 @@
+<thead>
+  <tr>
+    <th><%= t "views.form_publisher.id" %></th>
+    <th><%= t "views.form_publisher.name" %></th>
+    <th><%= t "views.form_publisher.address" %></th>
+    <th><%= t "views.form_publisher.phone" %></th>
+    <th><%= t "views.form_publisher.des" %></th>
+    <th class="action"></th>
+  </tr>
+</thead>
+<tbody>
+  <% @publishers.each do |publisher| %>
+    <tr class="background-tr">
+      <td><%= publisher.id %></td>
+      <td><%= publisher.name %></td>
+      <td><%= publisher.address %></td>
+      <td><%= publisher.phone %></td>
+      <td><%= publisher.description %></td>
+      <td>
+        <%= link_to edit_admins_publisher_path publisher do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+        <% end %>
+        <%= link_to admins_publisher_path(publisher), method: :delete,
+          data: {confirm: t("views.form.confirm")} do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
