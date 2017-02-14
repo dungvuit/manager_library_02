@@ -5,12 +5,18 @@
       <%= image_for @user %>
     </div>
     <div class="name">
-      <span><%= t "views.users.shows.name" %></span>
+      <span><%= t "views.user.shows.name" %></span>
       <%= @user.name %>
     </div>
     <div class="address">
-      <span><%= t "views.users.shows.address" %></span>
+      <span><%= t "views.user.shows.address" %></span>
       <%= @user.address %>
+    </div>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+    <div class="form-follow">
+      <%= render "follow_form" %>
     </div>
   </div>
   <div class="user-content col-xs-9">
@@ -50,6 +56,9 @@
         </div>
       </div>
       <div id="tab2" class="tab-pane fade">
+        <div class="user-follow">
+          <%= render "user_follow" %>
+        </div>
       </div>
       <div id="tab3" class="tab-pane fade">
       </div>

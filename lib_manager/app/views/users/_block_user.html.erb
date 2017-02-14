@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+  <div class="block">
+    <div class="image">
+      <%= image_for user %>
+    </div>
+    <div class="name">
+      <%= user.name %>
+    </div>
+  </div>
+<% end %>

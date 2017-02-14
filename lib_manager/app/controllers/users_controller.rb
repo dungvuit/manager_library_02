@@ -5,8 +5,20 @@ class UsersController < ApplicationController
   before_action :check_user_exist, only: [:show, :edit, :update]
 
   def show
+    @users = @user.following.pagination params[:page]
     @borrow_books = @user.borrow_books
     @following_books = @user.books
+    if params[:relationship].present?
+      @users = if params[:relationship] == "following"
+        @user.following.pagination params[:page]
+      elsif params[:relationship] == "followers"
+        @user.followers.pagination params[:page]
+      end
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    end
   end
 
   def new

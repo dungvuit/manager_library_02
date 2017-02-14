@@ -1,0 +1,5 @@
+<%= form_for :following_user, url:  user_follow_users_path(current_user),
+  remote: true do |f| %>
+  <%= hidden_field_tag :follower_id, @user.id %>
+  <%= f.submit t("views.user.shows.btn_follow"), class: "btn btn-success" %>
+<% end %>
