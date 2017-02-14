@@ -1,0 +1,9 @@
+<div class="form-comment">
+  <%= form_for :comment, url: book_comments_path(@book.id),
+    html: {class: "book-comment"}, remote: true do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.text_area :content, size: Settings.size_area, placeholder: t("views.books.shows.leave") %>
+    <div class="clearfix"></div>
+    <%= f.submit t("views.books.shows.comment"), class: "btn btn-primary" %>
+  <% end %>
+</div>

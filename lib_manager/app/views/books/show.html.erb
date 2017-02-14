@@ -1,0 +1,68 @@
+<% provide :title, @book.name %>
+<div id="book-show">
+  <div class="row">
+    <div class="cover col-xs-4">
+      <%= image_tag "demo.jpg" %>
+    </div>
+    <div class="content col-xs-8">
+      <h3><%= @book.name %></h3>
+      <ul class="list-info">
+        <li>
+          <span><%= t "views.books.shows.author" %></span>
+          <ul class="list">
+            <% @book.authors.each do |author| %>
+              <%= link_to "#" do %>
+                <li><%= author.name %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+        <li>
+          <span><%= t "views.books.shows.category" %></span>
+          <ul class="list">
+            <% @book.categories.each do |category| %>
+              <%= link_to "#" do %>
+                <li><%= category.name %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+        <li>
+          <span><%= t "views.books.shows.publisher" %></span>
+          <%= @book.publisher.name %>
+        </li>
+        <li>
+          <span><%= t "views.books.shows.amount" %></span>
+          <% if @book.amount == 0 %>
+            <span class="text"><%= t "views.books.shows.dont_have_book" %></span>
+          <% else %>
+            <%= @book.amount %>
+          <% end %>
+        </li>
+        <li>
+          <span><%= t "views.books.shows.publisher_year" %></span>
+          <%= @book.publisher_year %>
+        </li>
+        <li>
+          <span><%= t "views.books.shows.language" %></span>
+          <%= @book.language %>
+        </li>
+        <li>
+          <span><%= t "views.books.shows.description" %></span>
+          <%= @book.description %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="user-follow">
+  </div>
+
+  <hr>
+  <div class="comment">
+    <span class="leave"><%= t "views.books.shows.leave" %></span>
+    <% if logged_in? %>
+      <%= render "comments/comment_form", current_user: current_user %>
+    <% end %>
+    <%= render "comments/comment_list" %>
+  </div>
+</div>

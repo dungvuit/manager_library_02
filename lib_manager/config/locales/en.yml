@@ -52,6 +52,7 @@ en:
       profile: "Profile"
       setting: "Setting"
       logout: "Log out"
+      list_book: "List Book"
     user:
       show: "List User"
       create: "Create"
@@ -75,6 +76,17 @@ en:
       title: "Book"
       not_exist_book: "Not exist book in Category"
       all_category: "All category"
+      shows:
+        author: "Author :"
+        publisher: "Publisher :"
+        category: "Category :"
+        amount: "Amount :"
+        publisher_year: "Publisher Year :"
+        language: "Language :"
+        leave: "Comment"
+        comment: "Comment"
+        dont_have_book: "Dont have this book in Library"
+        description: "Description :"
     home:
       title: "Welcome to Open Library"
     footer:
@@ -84,6 +96,8 @@ en:
   helpers:
     base_title: "Open Library"
   controllers:
+    concerns:
+      object_not_exist: "Object Not Exist"
     applications:
       please: "Please log in."
     users:
@@ -95,5 +109,8 @@ en:
       edit_user_success: "User updated"
     books:
       category_not_exist: "Category not exist"
+      book_not_exist: "Book not exist"
     sessions:
       create_faild: "Invalid email/password combination"
+    comments:
+      commented: "Commented"

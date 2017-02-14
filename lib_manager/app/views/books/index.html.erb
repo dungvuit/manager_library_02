@@ -2,14 +2,14 @@
 <div id="book">
   <div class="col-xs-3">
     <ul class="list-categories">
-      <%= link_to books_path do %>
-        <li><%= t "views.books.all_category" %></li>
+      <%= link_to books_path, data: {remote: true} do %>
+        <li class="active"><%= t "views.books.all_category" %></li>
       <% end %>
-      <% @categories.each do |category| %>
-        <%= link_to category_books_path category do %>
-          <li><%= category.name %></li>
+        <% @categories.each do |category| %>
+          <%= link_to category_books_path(category), remote: true do %>
+            <li><%= category.name %></li>
+          <% end %>
         <% end %>
-      <% end %>
     </ul>
   </div>
   <div class="col-xs-9">

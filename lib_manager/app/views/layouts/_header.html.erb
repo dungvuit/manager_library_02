@@ -1,9 +1,9 @@
 <header class="navbar navbar-fixed-top" id="header">
   <div class="container">
-    <div class="brand side-left col-xs-3">
-      <%= link_to image_tag("logo.png", height: "80px"), root_path %>
+    <div class="brand side-left col-xs-2">
+      <%= link_to image_tag("logo.png", size: Settings.size_logo), root_path %>
     </div>
-    <nav class="side-right col-xs-9">
+    <nav class="side-right col-xs-10">
       <div class="form-search">
         <%= form_for :search, url: "#" do |f| %>
           <%= f.text_field :name, placeholder: t("views.header.placeholder") %>
@@ -30,6 +30,7 @@
         <% elsif logged_in? %>
           <li><%= link_to t("views.header.home"), "#" %></li>
           <li><%= link_to t("views.header.mybook"), "#" %></li>
+          <li><%= link_to t("views.header.list_book"), books_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= current_user.name %> <b class="caret"></b>
@@ -45,6 +46,7 @@
           </li>
         <% else %>
           <li><%= link_to t("views.header.home"), "#" %></li>
+          <li><%= link_to t("views.header.list_book"), books_path %></li>
           <li><%= link_to t("views.header.login"), login_path %></li>
         <% end %>
       </ul>
