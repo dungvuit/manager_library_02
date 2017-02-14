@@ -21,6 +21,28 @@
 
 en:
   views:
+    menu:
+      home: "Home"
+      admin: "Admin"
+      logout: "Logout"
+      manager_user: "Manager User"
+      manager_author: "Manager author"
+      manager_publisher: "Manager publisher"
+      manager_category: "Manager category"
+      manager_book: "Manager book"
+      manager_borrow: "Manager borrow book"
+    footer_admin:
+      copy_right: "2017 Website developed by"
+      name_team: "RUBY TEAM 3"
+    form:
+      id: "ID"
+      name: "Name"
+      password: "Password"
+      confirmation: "Confirmation"
+      email: "Email"
+      phonenumber: "Phone Number"
+      address: "Address"
+      type: "Type Account"
     header:
       search: "Search"
       home: "Home"
@@ -31,6 +53,9 @@ en:
       setting: "Setting"
       logout: "Log out"
     user:
+      show: "List User"
+      create: "Create"
+      export: "Export"
       signup:
         sign_up: "Sign Up"
         create_user: "Create User"
@@ -62,9 +87,12 @@ en:
     applications:
       please: "Please log in."
     users:
+      admin_create_user: "Create user success"
+      admin_delete: "User deleted"
       create_success: "Welcome to the Open Library"
       user_not_exist: "User not exist"
       edit_success: "Profile updated"
+      edit_user_success: "User updated"
     books:
       category_not_exist: "Category not exist"
     sessions:

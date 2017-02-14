@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   resources :categories, only: :show do
     resources :books, only: [:index, :show]
   end
+
+  namespace :admins do
+    get "/create", to: "users#new"
+    resources :users, except: [:new]
+  end
 end
