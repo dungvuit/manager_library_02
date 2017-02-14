@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :check_user_exist, only: [:show, :edit, :update]
 
   def show
+    @borrow_books = @user.borrow_books
   end
 
   def new

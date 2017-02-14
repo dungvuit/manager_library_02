@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214075048) do
+ActiveRecord::Schema.define(version: 20170208144343) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20170214075048) do
     t.string   "address"
     t.string   "description"
     t.integer  "publisher_id"
+    t.string   "image"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "image"
   end
 
   create_table "books", force: :cascade do |t|
@@ -32,18 +32,19 @@ ActiveRecord::Schema.define(version: 20170214075048) do
     t.string   "description"
     t.float    "rating"
     t.integer  "publisher_id"
+    t.string   "image"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "image"
   end
 
   create_table "borrow_books", force: :cascade do |t|
     t.date     "date_borrow"
     t.date     "date_return"
+    t.integer  "status",      default: 0, null: false
     t.integer  "user_id"
     t.integer  "book_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["book_id"], name: "index_borrow_books_on_book_id"
     t.index ["user_id"], name: "index_borrow_books_on_user_id"
   end
@@ -99,10 +100,10 @@ ActiveRecord::Schema.define(version: 20170214075048) do
     t.string   "name"
     t.integer  "phonenumber"
     t.boolean  "is_admin",        default: false
+    t.string   "image"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "remember_digest"
-    t.string   "image"
   end
 
 end

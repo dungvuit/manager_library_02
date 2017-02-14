@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  resources :users, expert: [:index, :new]
+  resources :users, expert: [:index, :new] do
+    resources :borrow_books, only: [:create, :destroy]
+  end
   resources :books, only: [:index, :show] do
     resources :comments, only: :create
   end

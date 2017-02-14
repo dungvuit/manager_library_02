@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t "views.users.shows.list_books.book_name" %></th>
+      <th><%= t "views.users.shows.list_books.date_borrow" %></th>
+      <th><%= t "views.users.shows.list_books.date_return" %></th>
+      <th><%= t "views.users.shows.list_books.date_status" %></th>
+      <th><%= t "views.users.shows.list_books.reserve_day" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @borrow_books.each do |borrow_book| %>
+      <tr>
+        <td><%= borrow_book.book.name %></td>
+        <td><%= borrow_book.date_borrow %></td>
+        <td><%= borrow_book.date_return %></td>
+        <td><%= borrow_book.status %></td>
+        <td><%= (borrow_book.date_return - Date.today).to_i %></td>
+        <% unless borrow_book.borrowing? %>
+          <td>
+            <%= link_to user_borrow_book_path(current_user, borrow_book), method: :delete do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

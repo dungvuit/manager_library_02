@@ -95,6 +95,20 @@ en:
         edit_publisher: "Edit publisher"
         save: "Save changes"
         profile: "Update your profile"
+      .shows:
+        address: "Address"
+        name: "Name"
+        book_borrow: "Book Borrowed"
+        book_followed: "Book Followed"
+        user_followed: "User Followed"
+        author_followed: "Author Followed"
+        list_book_followed: "List Book Followed"
+        list-books:
+          book_name: "Book Name"
+          date_borrow: "Date Borrow"
+          date_return: "Date Return"
+          status: "Status"
+          reserve_day: "Reserve Day"
     books:
       title: "Book"
       not_exist_book: "Not exist book in Category"
@@ -120,6 +134,9 @@ en:
         comment: "Comment"
         dont_have_book: "Dont have this book in Library"
         description: "Description :"
+        borrow_this_book: "Borrow This Book"
+        input_date: "Input Date Return :"
+        button_borrow: "Borrow"
     home:
       title: "Welcome to Open Library"
     footer:
@@ -155,3 +172,11 @@ en:
       create_faild: "Invalid email/password combination"
     comments:
       commented: "Commented"
+    borrow_books:
+      flashs:
+        success:
+          deleted: "Book Deleted"
+          create: "Wait accepot borrow book"
+        danger:
+          create: "Borrow Book Faild"
+          delete: "Deleted Faild"
