@@ -14,8 +14,10 @@ class BorrowBook < ApplicationRecord
 
   private
   def check_date_return
-    if self.date_return.present? && self.date_return < Date.today
-      errors.add :date_return, I18n.t("models.borrow_books.add_errors_return")
+    if self.date_return.present?
+      if self.date_return < Date.today
+        errors.add :date_return, I18n.t("models.borrow_books.add_errors_return")
+      end
     else
       errors.add :date_return, I18n.t("models.borrow_books.add_errors_return_nil")
     end

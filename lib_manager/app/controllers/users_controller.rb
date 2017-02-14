@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @borrow_books = @user.borrow_books
+    @following_books = @user.books
   end
 
   def new

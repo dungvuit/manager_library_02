@@ -48,6 +48,18 @@ class User < ApplicationRecord
     self == current_user
   end
 
+  def follow_book book
+    books << book
+  end
+
+  def unfollow_book book
+    books.destroy book
+  end
+
+  def following_book? book
+    books.include? book
+  end
+
   class << self
     def new_token
       SecureRandom.urlsafe_base64
