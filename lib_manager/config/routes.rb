@@ -21,8 +21,10 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get "/create", to: "users#new"
+    get "/create/book", to: "books#new"
     get "/create/publisher", to: "publishers#new"
     resources :users, except: [:new]
+    resources :books, except: [:new]
     resources :publishers, except: [:new]
   end
 end

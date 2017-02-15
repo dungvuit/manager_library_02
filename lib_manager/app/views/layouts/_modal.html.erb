@@ -1,0 +1,53 @@
+<div class="modal fade" id="book_modal_<%= book.id %>" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= button_tag class: "close", "data-dismiss" => "modal" do %>
+          &times;
+        <% end %>
+        <h4 class="modal-title"><%= t "views.modal.title_details" %></h4>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <%= image_tag book.image, class: "size-img-modal" %>
+        </div>
+        <div class="col-md-7">
+          <div class="info-book">
+            <p><%= t "views.form_book.id" %>:&nbsp;
+              <%= book.id %></p>
+            <p><%= t "views.form_book.name" %>:&nbsp;
+              <%= book.name %></p>
+            <p><%= t "views.form_book.publisher_year" %>:&nbsp;
+              <%= book.publisher_year %></p>
+            <p><%= t "views.form_book.amount" %>:&nbsp;
+              <%= book.amount %></p>
+            <p><%= t "views.form_book.weight" %>:&nbsp;
+              <%= book.weight %></p>
+            <p><%= t "views.form_book.language" %>:&nbsp;
+              <%= book.language %></p>
+            <p><%= t "views.form_book.rating" %>:&nbsp;
+              <%= book.rating %></p>
+            <p><%= t "views.form_publisher.name" %>:&nbsp;
+              <%= link_to "#" do %>
+                <%= book.publisher.name %>
+              <% end %>
+            </p>
+         </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="info-book">
+            <p><%= t "views.form_book.description" %>:&nbsp;
+              <%= book.description %></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= button_tag class: "btn btn-default", "data-dismiss" => "modal" do %>
+          <%= t "views.modal.close" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

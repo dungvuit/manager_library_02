@@ -1,0 +1,41 @@
+<thead>
+  <tr>
+    <th><%= t "views.form_book.id" %></th>
+    <th><%= t "views.form_book.name" %></th>
+    <th><%= t "views.form_book.images" %></th>
+    <th><%= t "views.form_book.publisher_year" %></th>
+    <th><%= t "views.form_book.amount" %></th>
+    <th><%= t "views.form_book.weight" %></th>
+    <th><%= t "views.form_book.language" %></th>
+    <th><%= t "views.form_publisher.name" %></th>
+    <th class="action"></th>
+  </tr>
+</thead>
+<tbody>
+  <% @books.each do |book| %>
+    <tr class="background-tr">
+      <td><%= book.id %></td>
+      <td><%= book.name %></td>
+      <td>
+      <%= link_to "#", "data-toggle" => "modal", "data-target" => "#book_modal_#{book.id}" do %>
+        <%= image_tag book.image, class: "size-img-thumbnail" %>
+      <% end %>
+      </td>
+      <td><%= book.publisher_year %></td>
+      <td><%= book.amount %></td>
+      <td><%= book.weight %></td>
+      <td><%= book.language %></td>
+      <td><%= book.publisher.name %></td>
+      <td>
+        <%= link_to edit_admins_book_path book do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+        <% end %>
+        <%= link_to admins_book_path(book), method: :delete,
+          data: {confirm: t("views.form.confirm")} do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+	<%= render "layouts/modal", book: book %>
+  <% end %>
+</tbody>

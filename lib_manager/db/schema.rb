@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20170208144343) do
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
-    t.date     "publisher_year"
+    t.string   "publisher_year"
     t.integer  "amount"
-    t.integer  "weight"
+    t.string   "weight"
     t.string   "language"
     t.string   "description"
     t.float    "rating"
