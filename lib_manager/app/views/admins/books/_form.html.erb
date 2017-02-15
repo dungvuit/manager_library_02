@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :name, t("views.form_book.name"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :image, t("views.form_book.images"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.file_field :image %>
+      </div> 
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :publisher_year, t("views.form_book.publisher_year"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :publisher_year, class: "form-control" %>
+      </div> 
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :amount, t("views.form_book.amount"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :amount, class: "form-control" %>
+      </div> 
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :weight, t("views.form_book.weight"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :weight, class: "form-control" %>
+      </div> 
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :language, t("views.form_book.language"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :language, class: "form-control" %>
+      </div> 
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :description, t("views.form_book.description"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_area :description, class: "form-control" %>
+      </div> 
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4">
+        <%= f.label :publisher_id, t("views.form_publisher.publisher_id"),
+          class: "col-form-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :publisher_id, class: "form-control" %>
+      </div> 
+    </div>
+    <div class="form-group">
+      <div class="col-md-6 col-md-offset-4">
+        <%= f.submit yield(:button_text), class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>

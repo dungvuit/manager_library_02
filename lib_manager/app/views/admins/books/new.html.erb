@@ -1,0 +1,28 @@
+<% provide :title, t("views.user.signup.create_book") %>
+<% provide :button_text, t("views.user.signup.create_book") %>
+<div class="main-content">
+  <div class="container">
+    <div class="info-manager">
+      <div class="title-manager pull-left">
+        <h2><%= t "views.user.signup.create_book" %></h2>
+      </div>
+      <div class="button-manager pull-right">
+        <ul>
+          <li>
+            <%= link_to "#" do %>
+              <i class="glyphicon glyphicon-export"></i>
+              <%= t "views.user.export" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="form-wrap">
+      <%= form_for @book, url: admins_books_path do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <%= render "form", f: f %>
+      <% end %>
+    </div>
+  </div>
+</div>

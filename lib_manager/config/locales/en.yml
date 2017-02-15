@@ -21,6 +21,9 @@
 
 en:
   views:
+    modal:
+      close: "Close"
+      title_details: "Book Details"
     menu:
       home: "Home"
       admin: "Admin"
@@ -56,6 +59,7 @@ en:
       rating: "Rating"
     form_publisher:
       id: "ID"
+      publisher_id: "Publisher ID"
       name: "Publisher name"
       address: "Publisher address"
       phone: "Phone number"
