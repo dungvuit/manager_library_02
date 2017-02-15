@@ -2,6 +2,8 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   before_save :downcase_email
 
+  mount_uploader :image, AvatarUploader
+
   has_many :comments
   has_many :ratings
   has_many :borrow_books

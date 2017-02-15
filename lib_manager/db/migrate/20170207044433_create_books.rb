@@ -9,6 +9,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :description
       t.float :rating
       t.integer :publisher_id
+      t.string :image
 
       t.timestamps
     end

@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  mount_uploader :image, AvatarUploader
+
   has_many :borrow_books
   has_many :comments
   has_many :ratings

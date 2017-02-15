@@ -45,7 +45,7 @@ end
   publisher_id = Publisher.all.sample.id
   amount = Faker::Number.between(0, 50)
   book = Book.create name: name, publisher_year: publisher_year, publisher_id: publisher_id,
-    description: description, amount: amount2
+    description: description, amount: amount
   book.authors << Author.all.sample
   book.categories << Category.all.sample
 end
