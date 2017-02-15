@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit :name, :email, :password,
-      :password_confirmation, :name, :address, :phonenumber
+      :password_confirmation, :image, :address, :phonenumber
   end
 
   def check_user_exist

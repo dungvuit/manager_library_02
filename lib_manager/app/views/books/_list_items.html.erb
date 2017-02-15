@@ -1,17 +1,43 @@
 <% @books.each_slice Settings.slice do |list_books| %>
   <div class="row">
     <% list_books.each do |book| %>
-      <div class="block-book col-xs-3">
-        <%= link_to book_path book do %>
-          <div class="block thumbnail">
-            <div class="image">
-              <%= image_tag "demo.jpg", size: Settings.size %>
+      <div class="block-book col-xs-6">
+        <div class="block thumbnail">
+          <div class="image col-xs-4">
+            <%= link_to image_for(book, size: Settings.size), book_path(book) %>
+          </div>
+          <div class="caption col-xs-8">
+            <div class="name">
+              <span><%= t "views.books.indexs.name" %></span>
+              <span><%= link_to book.name, book_path(book) %></span>
             </div>
-            <div class="caption">
-              <%= book.name %>
+            <div class="author">
+              <span><%= t "views.books.indexs.author" %></span>
+              <span>
+                <ul>
+                  <% book.authors.each do |author| %>
+                    <li><%= author.name %></li>
+                  <% end %>
+                </ul>
+              </span>
+            </div>
+            <div class="publisher">
+              <span><%= t "views.books.indexs.publisher" %></span>
+              <span><%= book.publisher.name %></span>
+            </div>
+            <div class="category">
+              <span><%= t "views.books.indexs.category" %></span>
+              <span>
+                <ul>
+                <% book.categories.each do |category| %>
+                  <li><%= category.name %></li>
+                <% end %>
+                </ul>
+              </span>
             </div>
           </div>
-        <% end %>
+          <div class="clearfix"></div>
+        </div>
       </div>
     <% end %>
   </div>

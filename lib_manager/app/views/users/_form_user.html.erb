@@ -17,7 +17,9 @@
   <%= f.email_field :address, class: "form-control" %>
 
   <%= f.label :phonenumber %>
-  <%= f.email_field :phonenumber, class: "form-control" %>
+  <%= f.number_field :phonenumber, class: "form-control" %>
+
+  <%= f.file_field :image %>
 
   <%= f.submit yield(:button_text) , class: "btn btn-primary" %>
 <% end %>

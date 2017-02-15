@@ -1,6 +1,8 @@
 per_page: 12
-size: "135x180"
+size: "100x150"
 size_logo: "125x80"
-slice: 4
+slice: 6
 size_avatar: "60x60"
 size_area: "80x5"
+size_image: "50"
+size_image_cover: "250x350"
