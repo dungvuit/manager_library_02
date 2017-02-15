@@ -43,6 +43,23 @@ en:
       phonenumber: "Phone Number"
       address: "Address"
       type: "Type Account"
+      confirm: "You Sure?"
+    form_book:
+      id: "ID"
+      name: "Book name"
+      images: "Book image"
+      publisher_year: "Publish Year"
+      amount: "Amount"
+      weight: "Weight"
+      language: "Language"
+      description: "Description"
+      rating: "Rating"
+    form_publisher:
+      id: "ID"
+      name: "Publisher name"
+      address: "Publisher address"
+      phone: "Phone number"
+      des: "Description"
     header:
       search: "Search"
       home: "Home"
@@ -55,11 +72,15 @@ en:
       list_book: "List Book"
     user:
       show: "List User"
+      show_book: "List Book"
+      show_publisher: "List Publisher"
       create: "Create"
       export: "Export"
       signup:
         sign_up: "Sign Up"
         create_user: "Create User"
+        create_book: "Create Book"
+        create_publisher: "Create Publisher"
         confirmation: "Confirmation"
         errors_contain: "The form contains"
         error: "error"
@@ -70,29 +91,31 @@ en:
         remember_me: "Remember me on this computer"
       edits:
         edit_user: "Edit user"
+        edit_book: "Edit book"
+        edit_publisher: "Edit publisher"
         save: "Save changes"
         profile: "Update your profile"
     books:
       title: "Book"
       not_exist_book: "Not exist book in Category"
       all_category: "All category"
-      indexs:
-        button_search: "Search"
-        input_name: "Input Book Name"
-        input_author: "Input Book Author"
-        input_category: "Input Book Category"
-        input_publisher: "Input Book Publisher"
-      shows:
-        author: "Author :"
-        publisher: "Publisher :"
-        category: "Category :"
-        amount: "Amount :"
-        publisher_year: "Publisher Year :"
-        language: "Language :"
-        leave: "Comment"
-        comment: "Comment"
-        dont_have_book: "Dont have this book in Library"
-        description: "Description :"
+    indexs:
+      button_search: "Search"
+      input_name: "Input Book Name"
+      input_author: "Input Book Author"
+      input_category: "Input Book Category"
+      input_publisher: "Input Book Publisher"
+    shows:
+      author: "Author :"
+      publisher: "Publisher :"
+      category: "Category :"
+      amount: "Amount :"
+      publisher_year: "Publisher Year :"
+      language: "Language :"
+      leave: "Comment"
+      comment: "Comment"
+      dont_have_book: "Dont have this book in Library"
+      description: "Description :"
     home:
       title: "Welcome to Open Library"
     footer:
@@ -114,8 +137,16 @@ en:
       edit_success: "Profile updated"
       edit_user_success: "User updated"
     books:
+      book_create: "Create book success"
+      book_edit: "Book updated"
+      book_delete: "Book deleted"
       category_not_exist: "Category not exist"
       book_not_exist: "Book not exist"
+    publishers:
+      publisher_create: "Create publisher success"
+      publisher_edit: "Publisher updated"
+      publisher_delete: "Publisher deleted"
+      publisher_not_exist: "Publisher not exist"
     sessions:
       create_faild: "Invalid email/password combination"
     comments:

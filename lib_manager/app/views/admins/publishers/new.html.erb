@@ -1,10 +1,10 @@
-<% provide :title, t("views.user.signup.create_user") %>
-<% provide :button_text, t("views.user.signup.create_user") %>
+<% provide :title, t("views.user.signup.create_publisher") %>
+<% provide :button_text, t("views.user.signup.create_publisher") %>
 <div class="main-content">
   <div class="container">
     <div class="info-manager">
       <div class="title-manager pull-left">
-        <h2><%= t "views.user.signup.create_user" %></h2>
+        <h2><%= t "views.user.signup.create_publisher" %></h2>
       </div>
       <div class="button-manager pull-right">
         <ul>
@@ -19,7 +19,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="form-wrap">
-      <%= form_for @user, url: admins_users_path do |f| %>
+      <%= form_for @publisher, url: admins_publishers_path do |f| %>
         <%= render "shared/error_messages", object: f.object %>
         <%= render "form", f: f %>
       <% end %>

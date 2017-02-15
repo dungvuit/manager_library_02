@@ -1,7 +1,7 @@
 <div class="header">
   <div class="container">
     <div class="logo pull-left">
-        <%= link_to image_tag("logo.png"), "#" %>
+      <%= link_to image_tag("logo.png"), "#" %>
     </div>
     <div class="account pull-right">
       <div class="username">
@@ -34,11 +34,13 @@
             <%= t "views.menu.home" %>
           <% end %>
         </li>
-        <li class="actived"><%= link_to t("views.menu.manager_user"), admins_users_path %></li>
-        <li><%= link_to t("views.menu.manager_author"), "#" %></li>
-        <li><%= link_to t("views.menu.manager_publisher"), "#" %></li>
-        <li><%= link_to t("views.menu.manager_category"), "#" %></li>
+        <li class="<%= "actived" if current_page?(admins_users_path) %>">
+          <%= link_to t("views.menu.manager_user"), admins_users_path %></li>
         <li><%= link_to t("views.menu.manager_book"), "#" %></li>
+        <li class="<%= "actived" if current_page?(admins_publishers_path) %>">
+          <%= link_to t("views.menu.manager_publisher"), admins_publishers_path %></li>
+        <li><%= link_to t("views.menu.manager_author"), "#" %></li>
+        <li><%= link_to t("views.menu.manager_category"), "#" %></li>
         <li><%= link_to t("views.menu.manager_borrow"), "#" %></li>
       </ul>
     </div>

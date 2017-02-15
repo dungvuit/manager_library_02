@@ -22,7 +22,8 @@
         <%= link_to edit_admins_user_path user do %>
           <i class="glyphicon glyphicon-pencil"></i>
         <% end %>
-        <%= link_to admins_user_path(user), method: :delete do %>
+        <%= link_to admins_user_path(user), method: :delete,
+          data: {confirm: t("views.form.confirm")} do %>
           <i class="glyphicon glyphicon-trash"></i>
         <% end %>
       </td>
