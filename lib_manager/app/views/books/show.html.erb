@@ -56,7 +56,18 @@
   </div>
   <div class="user-follow">
   </div>
-
+  <div class="borrow-book">
+    <p><%= t "views.book.shows.borrow_this_book" %></p>
+    <div class="form-borrow">
+      <%= form_for :borrow_book, url: user_borrow_books_path(current_user) do |f| %>
+        <%= f.label t("views.books.shows.input_date") %>
+        <%= f.date_field :date_return %>
+        <%= f.hidden_field :date_borrow , value: Date.today %>
+        <%= f.hidden_field :book_id, value: @book.id %>
+        <%= f.submit t("views.books.shows.button_borrow"), class: "submit" %>
+      <% end %>
+    </div>
+  </div>
   <hr>
   <div class="comment">
     <span class="leave"><%= t "views.books.shows.leave" %></span>
