@@ -1,0 +1,20 @@
+<tr class="background-tr">
+  <td><%= author.name %></td>
+  <td><%= image_tag author.image, class: "size-img-thumbnail" %></td>
+  <td><%= author.gender %></td>
+  <td><%= author.address %></td>
+  <td><%= author.description %></td>
+  <td><%= author.publisher.name %></td>
+  <td>
+    <%= link_to edit_admins_author_path author do %>
+      <i class="glyphicon glyphicon-pencil"></i>
+    <% end %>
+    <%= link_to admins_author_path(author) do %>
+      <i class="glyphicon glyphicon-user"></i>
+    <% end %>
+    <%= link_to admins_author_path(author), method: :delete,
+      data: {confirm: t("views.form.confirm")} do %>
+      <i class="glyphicon glyphicon-trash"></i>
+    <% end %>
+  </td>
+</tr>

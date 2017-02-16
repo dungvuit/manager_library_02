@@ -20,12 +20,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    get "/create", to: "users#new"
-    get "/create/book", to: "books#new"
-    get "/create/publisher", to: "publishers#new"
-    resources :users, except: [:new]
-    resources :books, except: [:new]
-    resources :publishers, except: [:new]
+    resources :users
+    resources :books
+    resources :publishers
+    resources :authors
     resources :borrow_books, only: [:index, :update, :destroy]
   end
 end

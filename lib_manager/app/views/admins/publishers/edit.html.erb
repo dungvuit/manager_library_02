@@ -9,7 +9,7 @@
       <div class="button-manager pull-right">
         <ul>
           <li>
-            <%= link_to admins_create_publisher_path do %>
+            <%= link_to new_admins_publisher_path do %>
               <i class="glyphicon glyphicon-plus"></i>
               <%= t "views.user.create" %>
             <% end %>
@@ -25,10 +25,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="form-wrap">
-      <%= form_for @publisher, url: admins_publisher_path do |f| %>
-        <%= render "shared/error_messages", object: f.object %>
-        <%= render "form", f: f %>
-      <% end %>
+      <%= render "form" %>
     </div>
   </div>
 </div>
