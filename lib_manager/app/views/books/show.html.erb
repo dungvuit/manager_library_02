@@ -54,29 +54,32 @@
       </ul>
     </div>
   </div>
-  <div class="user-follow">
-  </div>
-  <div class="borrow-book">
-    <p><%= t "views.book.shows.borrow_this_book" %></p>
-    <% if current_user.borrow_books.overdue.count > Settings.overdue %>
-      <p class="danger"><%= t "views.books.shows.user_can_borrow_book" %></p>
-    <% else %>
-      <div class="form-borrow">
-        <div class="show-errors col-xs-4"></div>
-        <div class="clearfix"></div>
-        <%= form_for :borrow_book, url: user_borrow_books_path(current_user),
-          remote: true do |f| %>
-          <%= f.label t("views.books.shows.input_date") %>
-          <%= f.date_field :date_return %>
+  <% if logged_in? %>
+    <div class="user-follow">
+      <%= render "follow_form" %>
+    </div>
+    <div class="borrow-book">
+      <p><%= t "views.book.shows.borrow_this_book" %></p>
+      <% if current_user.borrow_books.overdue.count < 3 %>
+        <div class="form-borrow">
+          <div class="show-errors col-xs-4"></div>
+          <div class="clearfix"></div>
+          <%= form_for :borrow_book, url: user_borrow_books_path(current_user),
+            remote: true do |f| %>
+            <%= f.label t("views.books.shows.input_date") %>
+            <%= f.date_field :date_return %>
 
-          <%= f.hidden_field :date_borrow , value: Date.today %>
-          <%= f.hidden_field :book_id, value: @book.id %>
+            <%= f.hidden_field :date_borrow , value: Date.today %>
+            <%= f.hidden_field :book_id, value: @book.id %>
 
-          <%= f.submit t("views.books.shows.button_borrow"), class: "submit" %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+            <%= f.submit t("views.books.shows.button_borrow"), class: "submit" %>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="danger"><%= t "views.books.shows.user_cant_borrow_book" %></p>
+      <% end %>
+    </div>
+  <% end %>
   <hr>
   <div class="comment">
     <span class="leave"><%= t "views.books.shows.leave" %></span>

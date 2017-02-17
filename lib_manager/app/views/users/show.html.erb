@@ -32,7 +32,7 @@
       <div id="home" class="tab-pane fade in active">
         <div class="borrow-book">
           <div class="title">
-            <%= t "views.users.shows.list_book_followed" %>
+            <%= t "views.users.shows.list_book_borrowing" %>
           </div>
           <div class="list-book">
             <%= render "list_book" %>
@@ -40,6 +40,14 @@
         </div>
       </div>
       <div id="tab1" class="tab-pane fade">
+        <div class="following-books">
+          <div class="title">
+            <%= t "views.users.shows.list_book_following" %>
+          </div>
+          <div class="list-books">
+            <%= render "list_book_following" %>
+          </div>
+        </div>
       </div>
       <div id="tab2" class="tab-pane fade">
       </div>

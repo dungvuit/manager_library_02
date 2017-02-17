@@ -102,6 +102,54 @@
             padding-bottom: 30px;
           }
         }
+        .following-books {
+          .title {
+            font-size: 25px;
+            text-align: center;
+            padding-bottom: 30px;
+          }
+          .list-books {
+            .block-book {
+              .block {
+                min-height: 180px;
+                .image {
+                  margin-top: 15px;
+                }
+                .caption {
+                  padding-left: 20px;
+                  .author {
+                    span {
+                      display: inline-block;
+                      ul {
+                        padding-left: 0px;
+                        list-style: none;
+                      }
+                    }
+                  }
+                  .category {
+                    span {
+                      display: inline-block;
+                      ul {
+                        padding-left: 0px;
+                        list-style: none;
+                      }
+                    }
+                  }
+                  a {
+                    &:hover {
+                      text-decoration: none;
+                      color: #5fcf80
+                    }
+                    .block {
+                      min-height: 250px;
+                      text-align: center;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
     #book {

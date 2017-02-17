@@ -23,7 +23,7 @@ class Admins::BorrowBooksController < ApplicationController
   def destroy
     type = @borrow_book.destroy ? "success" : "danger"
     @book.update_attributes amount: @book.amount + Settings.borrow
-    flash[:"#{type}"] = t "controllers.borrow_books.flashs.#{type}.delete"
+    flash[:"#{type}"] = t "controllers.borrow_books.flashs.#{type}.deleted"
     redirect_to admins_borrow_books_path
   end
 

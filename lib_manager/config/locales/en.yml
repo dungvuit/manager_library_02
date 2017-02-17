@@ -115,7 +115,8 @@ en:
         book_followed: "Book Followed"
         user_followed: "User Followed"
         author_followed: "Author Followed"
-        list_book_followed: "List Book Followed"
+        list_book_borrowing: "List Book Borrowing"
+        list_book_following: "List Book Following"
         list-books:
           book_name: "Book Name"
           date_borrow: "Date Borrow"
@@ -124,7 +125,7 @@ en:
           reserve_day: "Reserve Day"
           reject: "Reject"
           pending: "Pending"
-          borrowing: "Borrowing" 
+          borrowing: "Borrowing"
     books:
       title: "Book"
       not_exist_book: "Not exist book in Category"
@@ -140,6 +141,8 @@ en:
         input_category: "Input Book Category"
         input_publisher: "Input Book Publisher"
       shows:
+        follow_book: "Follow this book"
+        unfollow_book: "Unfollow this book"
         author: "Author :"
         publisher: "Publisher :"
         category: "Category :"
@@ -153,7 +156,7 @@ en:
         borrow_this_book: "Borrow This Book"
         input_date: "Input Date Return :"
         button_borrow: "Borrow"
-        user_can_borrow_book: "You can borow this book. Because You overdue 3 time"
+        user_cant_borrow_book: "You can borow this book. Because You overdue 3 time"
     home:
       title: "Welcome to Open Library"
     footer:
