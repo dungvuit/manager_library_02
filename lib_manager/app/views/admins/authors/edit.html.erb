@@ -1,14 +1,15 @@
-<% provide :title, t("views.user.show_book") %>
+<% provide :title, t("views.user.edits.edit_author") %>
+<% provide :button_text, t("views.user.edits.save") %>
 <div class="main-content">
   <div class="container">
     <div class="info-manager">
       <div class="title-manager pull-left">
-        <h2><%= t "views.user.show_book" %></h2>
+        <h2><%= t "views.user.edits.edit_author" %></h2>
       </div>
       <div class="button-manager pull-right">
         <ul>
           <li>
-            <%= link_to new_admins_book_path do %>
+            <%= link_to new_admins_author_path do %>
               <i class="glyphicon glyphicon-plus"></i>
               <%= t "views.user.create" %>
             <% end %>
@@ -23,12 +24,8 @@
       </div>
       <div class="clearfix"></div>
     </div>
-    <div class="table-responsive">
-      <%= will_paginate %> 
-        <table class="table table-bordered table-hover">
-         <%= render "list_book" %>
-        </table>
-      <%= will_paginate %> 
+    <div class="form-wrap">
+      <%= render "form" %>
     </div>
   </div>
 </div>

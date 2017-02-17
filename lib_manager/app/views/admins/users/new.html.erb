@@ -19,10 +19,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="form-wrap">
-      <%= form_for @user, url: admins_users_path do |f| %>
-        <%= render "shared/error_messages", object: f.object %>
-        <%= render "form", f: f %>
-      <% end %>
+      <%= render "form" %>
     </div>
   </div>
 </div>

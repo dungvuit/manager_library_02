@@ -21,6 +21,7 @@
 
 en:
   views:
+    show_author: "Show author"
     modal:
       close: "Close"
       title_details: "Book Details"
@@ -55,6 +56,8 @@ en:
       address: "Address"
       type: "Type Account"
       confirm: "You Sure?"
+      radio_admin: "Admin"
+      radio_user: "User"
     form_book:
       id: "ID"
       name: "Book name"
@@ -72,6 +75,14 @@ en:
       address: "Publisher address"
       phone: "Phone number"
       des: "Description"
+    form_author:
+      id: "ID"
+      name: "Author Name"
+      gender: "Author Gender"
+      address: "Author Address"
+      des: "Description"
+      publisher_id: "Publisher ID"
+      image: "Avatar Author"
     header:
       search: "Search"
       home: "Home"
@@ -87,6 +98,7 @@ en:
       show_book: "List Book"
       show_publisher: "List Publisher"
       list_book_borrowing: "List Book Borrowing"
+      show_list_author: "List Author"
       create: "Create"
       export: "Export"
       signup:
@@ -94,6 +106,7 @@ en:
         create_user: "Create User"
         create_book: "Create Book"
         create_publisher: "Create Publisher"
+        create_author: "Create Author"
         confirmation: "Confirmation"
         errors_contain: "The form contains"
         error: "error"
@@ -106,6 +119,7 @@ en:
         edit_user: "Edit user"
         edit_book: "Edit book"
         edit_publisher: "Edit publisher"
+        edit_author: "Edit author"
         save: "Save changes"
         profile: "Update your profile"
       .shows:
@@ -188,6 +202,12 @@ en:
       publisher_edit: "Publisher updated"
       publisher_delete: "Publisher deleted"
       publisher_not_exist: "Publisher not exist"
+    authors:
+      author_create: "Create author success"
+      author_edit: "Author updated"
+      author_delete: "Author deleted"
+      author_not_exist: "Author not exist"
+      wrong_author: "Can't delete author"
     sessions:
       create_faild: "Invalid email/password combination"
     comments:

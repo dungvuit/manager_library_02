@@ -1,0 +1,48 @@
+<% provide :title, t("views.show_author") %>
+<div class="main-content">
+  <div class="container">
+    <div class="info-manager">
+      <div class="title-manager pull-left">
+        <h2><%= t "views.show_author" %></h2>
+      </div>
+      <div class="button-manager pull-right">
+        <ul>
+          <li>
+            <%= link_to "#" do %>
+              <i class="glyphicon glyphicon-export"></i>
+              <%= t "views.user.export" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="form-wrap">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="info-author">
+            <%= image_tag @author.image, class: "size-img-author" %>
+            <p><%= t "views.form_author.name" %>:&nbsp;
+              <%= @author.name %></p>
+            <p><%= t "views.form_author.gender" %>:&nbsp;
+              <%= @author.gender %></p>
+            <p><%= t "views.form_author.address" %>:&nbsp;
+              <%= @author.address %></p>
+            <p><%= t "views.form_author.des" %>:&nbsp;
+              <%= @author.description %></p>
+            <p><%= t "views.form_publisher.name" %>:&nbsp;
+              <%= link_to "#" do %>
+                <%= @author.publisher.name %>
+              <% end %>
+            </p>
+            <p>
+              <%= link_to edit_admins_author_path @author do %>
+                <i class="glyphicon glyphicon-pencil"></i>
+              <% end %>
+            </p> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

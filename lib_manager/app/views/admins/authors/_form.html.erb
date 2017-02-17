@@ -1,11 +1,10 @@
-<%= form_for [:admins, @book] do |f| %>
+<%= form_for [:admins, @author] do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-md-offset-3">
       <div class="form-group row">
         <div class="col-md-4">
-          <%= f.label :name, t("views.form_book.name"),
+          <%= f.label :name, t("views.form_author.name"),
             class: "col-form-label" %>
         </div>
         <div class="col-md-6">
@@ -14,7 +13,7 @@
       </div>
       <div class="form-group row">
         <div class="col-md-4">
-          <%= f.label :image, t("views.form_book.images"),
+          <%= f.label :image, t("views.form_author.image"),
             class: "col-form-label" %>
         </div>
         <div class="col-md-6">
@@ -23,57 +22,39 @@
       </div>
       <div class="form-group row">
         <div class="col-md-4">
-          <%= f.label :publisher_year, t("views.form_book.publisher_year"),
+          <%= f.label :gender, t("views.form_author.gender"),
             class: "col-form-label" %>
         </div>
         <div class="col-md-6">
-          <%= f.text_field :publisher_year, class: "form-control" %>
-        </div> 
-      </div>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <%= f.label :amount, t("views.form_book.amount"),
-            class: "col-form-label" %>
-        </div>
-        <div class="col-md-6">
-          <%= f.text_field :amount, class: "form-control" %>
-        </div> 
-      </div>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <%= f.label :weight, t("views.form_book.weight"),
-            class: "col-form-label" %>
-        </div>
-        <div class="col-md-6">
-          <%= f.text_field :weight, class: "form-control" %>
-        </div> 
-      </div>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <%= f.label :language, t("views.form_book.language"),
-            class: "col-form-label" %>
-        </div>
-        <div class="col-md-6">
-          <%= f.text_field :language, class: "form-control" %>
+          <%= f.select :gender, @gender %>
         </div>
       </div>
       <div class="form-group row">
         <div class="col-md-4">
-          <%= f.label :description, t("views.form_book.description"),
+          <%= f.label :address, t("views.form_author.address"),
+            class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :description, t("views.form_author.des"),
             class: "col-form-label" %>
         </div>
         <div class="col-md-6">
           <%= f.text_area :description, class: "form-control" %>
-        </div> 
+        </div>
       </div>
       <div class="form-group row">
         <div class="col-md-4">
-          <%= f.label :publisher_id, t("views.form_publisher.publisher_id"),
+          <%= f.label :publisher_id, t("views.form_author.publisher_id"),
             class: "col-form-label" %>
         </div>
         <div class="col-md-6">
-          <%= f.text_field :publisher_id, class: "form-control" %>
-        </div> 
+        <%= f.select :publisher_id, @publisher.ids %>
+        </div>
       </div>
       <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
