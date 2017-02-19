@@ -1,0 +1,25 @@
+<% provide :title, t("views.user.signup.create_category") %>
+<% provide :button_text, t("views.user.signup.create_category") %>
+<div class="main-content">
+  <div class="container">
+    <div class="info-manager">
+      <div class="title-manager pull-left">
+        <h2><%= t "views.user.signup.create_category" %></h2>
+      </div>
+      <div class="button-manager pull-right">
+        <ul>
+          <li>
+            <%= link_to "#" do %>
+              <i class="glyphicon glyphicon-export"></i>
+              <%= t "views.user.export" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="form-wrap">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>
