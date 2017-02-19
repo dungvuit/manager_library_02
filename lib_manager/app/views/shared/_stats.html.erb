@@ -1,0 +1,14 @@
+<div class="stats">
+  <%= link_to "#" do %>
+    <strong id="following" class="stat">
+      <%= current_user.following.count %>
+    </strong>
+    <%= t "views.user.shows.following" %>
+  <% end %>
+  <%= link_to "#" do %>
+    <strong id="followers" class="stat">
+      <%= current_user.followers.count %>
+    </strong>
+    <%= t "views.user.shows.follower" %>
+  <% end %>
+</div>

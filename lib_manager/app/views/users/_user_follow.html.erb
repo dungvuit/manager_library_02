@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs nav-justified">
+  <li><%= link_to t("views.user.shows.user_following"),
+    user_path(@user, relationship: "following"), remote: true %></li>
+  <li><%= link_to t("views.user.shows.user_follower"),
+    user_path(@user, relationship: "followers"), remote: true %></li>
+</ul>
+<div class="list-user">
+  <%= render "block_user" %>
+  <%= will_paginate @users %>
+</div>

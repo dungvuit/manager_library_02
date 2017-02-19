@@ -122,9 +122,15 @@ en:
         edit_author: "Edit author"
         save: "Save changes"
         profile: "Update your profile"
-      .shows:
-        address: "Address"
-        name: "Name"
+      shows:
+        following: "Following"
+        follower: "Follower"
+        btn_follow: "Follow User"
+        btn_unfollow: "Unfollow User"
+        user_following: "User Following"
+        user_follower: "User Follower"
+        address: "Address :"
+        name: "Name :"
         book_borrow: "Book Borrowed"
         book_followed: "Book Followed"
         user_followed: "User Followed"

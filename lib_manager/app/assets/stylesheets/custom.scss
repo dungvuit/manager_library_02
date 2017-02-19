@@ -92,8 +92,31 @@
         .avatar {
           padding-bottom: 10px;
         }
+        .stats {
+          overflow: auto;
+          margin-top: 0;
+          padding: 0;
+          a {
+            float: left;
+            padding: 0 10px;
+            border-left: 1px solid $gray-lighter;
+            color: gray;
+            &:first-child {
+              padding-left: 0;
+              border: 0;
+            }
+            &:hover {
+              text-decoration: none;
+              color: blue;
+            }
+          }
+          strong {
+            display: block;
+          }
+        }
       }
       .user-content {
+
         .borrow-book {
           padding-top: 30px;
           .title {
@@ -146,6 +169,20 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+        .user-follow {
+          .list-user {
+            .block {
+              padding: 15px;
+              border-bottom: 1px solid #eee;
+              .image {
+                display: inline-block;
+              }
+              .name {
+                display: inline-block;
               }
             }
           }

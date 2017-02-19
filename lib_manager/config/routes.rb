@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "pages#show", page: "home"
+  root "books#index"
 
   get "/pages/*page", to: "pages#show"
 
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, expert: [:index, :new] do
     resources :borrow_books, only: [:create, :destroy]
     resources :follow_books, only: [:create, :destroy]
+    resources :follow_users, only: [:index, :create, :destroy]
   end
   resources :books, only: [:index, :show] do
     resources :comments, only: :create
