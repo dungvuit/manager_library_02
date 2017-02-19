@@ -49,11 +49,11 @@
       </div>
       <div class="form-group row">
         <div class="col-md-4">
-          <%= f.label :publisher_id, t("views.form_author.publisher_id"),
+          <%= f.label :publisher_id, t("views.form_publisher.name"),
             class: "col-form-label" %>
         </div>
         <div class="col-md-6">
-        <%= f.select :publisher_id, @publisher.ids %>
+        <%= f.select :publisher_id, @publisher %>
         </div>
       </div>
       <div class="form-group">

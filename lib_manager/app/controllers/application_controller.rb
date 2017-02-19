@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def load_publishers
-    @publisher = Publisher.all
+    @publisher = Publisher.all.collect {|publisher| [publisher.name, publisher.id]}
   end
 end

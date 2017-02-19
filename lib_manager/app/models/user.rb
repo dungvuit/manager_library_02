@@ -2,6 +2,8 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   before_save :downcase_email
 
+  scope :sort_by_create_at, -> {order created_at: :desc}
+
   mount_uploader :image, AvatarUploader
 
   has_many :comments
@@ -9,8 +11,10 @@ class User < ApplicationRecord
   has_many :borrow_books
 
   has_many :relationships, as: :ownerable
-  has_many :books, through: :relationships, source_type: Book.name, source: :targetable
-  has_many :following_author, through: :relationships, source_type: Author.name, source: :targetable
+  has_many :books, through: :relationships,
+    source_type: Book.name, source: :targetable
+  has_many :following_author, through: :relationships,
+    source_type: Author.name, source: :targetable
 
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: "ownerable_id", dependent: :destroy
@@ -25,8 +29,14 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255},
-    format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
-  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
+    format: {with: VALID_EMAIL_REGEX},
+      uniqueness: {case_sensitive: false}
+  validates :password, presence: true,
+    length: {minimum: 6}, allow_nil: true
+  validates :image, presence: true
+  validates :phonenumber, presence: true,
+    length: {maximum: 10}
+  validates :address, presence: true
 
   has_secure_password
 
@@ -59,7 +69,7 @@ class User < ApplicationRecord
   def following_book? book
     books.include? book
   end
-
+  
   def following_user other_user
     following << other_user
   end
@@ -81,6 +91,15 @@ class User < ApplicationRecord
       cost = ActiveModel::SecurePassword.min_cost ?
         BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
       BCrypt::Password.create string, cost: cost
+    end
+
+    def to_csv options = {}
+      CSV.generate options do |csv|
+        csv << column_names
+        all.each do |user|
+          csv << user.attributes.values_at(*column_names)
+        end
+      end
     end
   end
 

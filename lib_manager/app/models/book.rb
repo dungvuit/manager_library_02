@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
   mount_uploader :image, AvatarUploader
 
+  scope :sort_by_create_at, -> {order created_at: :desc}
+
   has_many :borrow_books
   has_many :comments
   has_many :ratings
