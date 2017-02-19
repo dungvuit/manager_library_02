@@ -1,0 +1,24 @@
+<thead>
+  <tr>
+    <th><%= t "views.form_category.id" %></th>
+    <th><%= t "views.form_category.name" %></th>
+    <th class="action"></th>
+  </tr>
+</thead>
+<tbody>
+  <% @categories.each do |category| %>
+    <tr class="background-tr">
+      <td><%= category.id %></td>
+      <td><%= category.name %></td>
+      <td>
+        <%= link_to edit_admins_category_path category do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+        <% end %>
+        <%= link_to admins_category_path(category), method: :delete,
+          data: {confirm: t("views.form.confirm")} do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

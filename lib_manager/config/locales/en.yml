@@ -22,6 +22,7 @@
 en:
   views:
     show_author: "Show author"
+    show_book: "Show book"
     modal:
       close: "Close"
       title_details: "Book Details"
@@ -58,6 +59,7 @@ en:
       confirm: "You Sure?"
       radio_admin: "Admin"
       radio_user: "User"
+      image: "User avatar"
     form_book:
       id: "ID"
       name: "Book name"
@@ -99,6 +101,7 @@ en:
       show_publisher: "List Publisher"
       list_book_borrowing: "List Book Borrowing"
       show_list_author: "List Author"
+      show_list_category: "List Categories"
       create: "Create"
       export: "Export"
       signup:
@@ -107,6 +110,7 @@ en:
         create_book: "Create Book"
         create_publisher: "Create Publisher"
         create_author: "Create Author"
+        create_category: "Create Category"
         confirmation: "Confirmation"
         errors_contain: "The form contains"
         error: "error"
@@ -208,6 +212,12 @@ en:
       author_delete: "Author deleted"
       author_not_exist: "Author not exist"
       wrong_author: "Can't delete author"
+    categories:
+      category_create: "Create category success"
+      category_edit: "Category updated"
+      category_delete: "Category deleted"
+      category_not_exist: "Category not exist"
+      wrong_category: "Can't delete category"
     sessions:
       create_faild: "Invalid email/password combination"
     comments:

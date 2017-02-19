@@ -3,9 +3,10 @@ class Admins::BooksController < ApplicationController
 
   before_action :logged_in_user, :verify_admin
   before_action :find_book, except: [:index, :new, :create]
+  before_action :load_publishers, only: [:new, :edit]
 
   def index
-    @books = Book.paginate page: params[:page]
+    @books = Book.sort_by_create_at.paginate page: params[:page]
   end
 
   def new
@@ -20,9 +21,6 @@ class Admins::BooksController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
   end
 
   def edit

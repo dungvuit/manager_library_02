@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :books
     resources :publishers
     resources :authors
+    resources :categories
     resources :borrow_books, only: [:index, :update, :destroy]
   end
 end

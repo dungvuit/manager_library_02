@@ -5,7 +5,11 @@ class Admins::UsersController < ApplicationController
   before_action :find_user, except: [:index, :new, :create]
 
   def index
-    @users = User.paginate page: params[:page]
+    @users = User.sort_by_create_at.paginate page: params[:page]
+    respond_to do |format|
+      format.html
+      format.xls {send_data @users.to_csv(col_sep: "\t")}
+    end
   end
 
   def new
@@ -54,6 +58,6 @@ class Admins::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :name, :email, :password,
-      :password_confirmation, :address, :phonenumber, :is_admin
+      :password_confirmation, :address, :phonenumber, :is_admin, :image
   end
 end
