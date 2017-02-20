@@ -94,7 +94,7 @@ en:
       home: "Home"
       login: "Login"
       placeholder: "Search Book ..."
-      mybook: "My Book"
+      my_profile: "My Profile"
       profile: "Profile"
       setting: "Setting"
       logout: "Log out"
@@ -131,6 +131,7 @@ en:
         save: "Save changes"
         profile: "Update your profile"
       shows:
+        user_follow: "User Follow"
         following: "Following"
         follower: "Follower"
         btn_follow: "Follow User"

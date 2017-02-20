@@ -1,1 +1,3 @@
 $('.follow-form-user').html('<%= j render "/users/unfollow_user" %>')
+$('.user-follow .list-users').html('<%= j render "users/user_follow" %>')
+$('.user-profile .stats').html('<%= j render "shared/stats", object: current_user %>')
