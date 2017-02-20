@@ -82,6 +82,18 @@ class User < ApplicationRecord
     following.include? other_user
   end
 
+  def follow_author author
+    following_author << author
+  end
+
+  def following_author? author
+    following_author.include? author
+  end
+
+  def unfollow_author author
+    following_author.destroy author
+  end
+
   class << self
     def new_token
       SecureRandom.urlsafe_base64

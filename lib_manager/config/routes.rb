@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :borrow_books, only: [:create, :destroy]
     resources :follow_books, only: [:create, :destroy]
     resources :follow_users, only: [:index, :create, :destroy]
+    resources :follow_authors, only: [:create, :destroy]
   end
+  resources :authors, only: :show
   resources :books, only: [:index, :show] do
     resources :comments, only: :create
   end

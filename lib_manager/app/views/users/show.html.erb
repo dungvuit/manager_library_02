@@ -13,7 +13,7 @@
       <%= @user.address %>
     </div>
     <section class="stats">
-      <%= render 'shared/stats' %>
+      <%= render "shared/stats", object: @user %>
     </section>
     <div class="form-follow">
       <%= render "follow_form" %>
@@ -38,7 +38,7 @@
       <div id="home" class="tab-pane fade in active">
         <div class="borrow-book">
           <div class="title">
-            <%= t "views.users.shows.list_book_borrowing" %>
+            <h3><%= t "views.users.shows.list_book_borrowing" %></h3>
           </div>
           <div class="list-book">
             <%= render "list_book" %>
@@ -48,19 +48,29 @@
       <div id="tab1" class="tab-pane fade">
         <div class="following-books">
           <div class="title">
-            <%= t "views.users.shows.list_book_following" %>
+            <h3><%= t "views.users.shows.list_book_following" %></h3>
           </div>
           <div class="list-books">
             <%= render "list_book_following" %>
+            <% will_paginate @books %>
           </div>
         </div>
       </div>
       <div id="tab2" class="tab-pane fade">
         <div class="user-follow">
+          <div class="title">
+            <h3><%= t "views.users.shows.user_follow" %></h3>
+          </div>
           <%= render "user_follow" %>
         </div>
       </div>
       <div id="tab3" class="tab-pane fade">
+        <div class="author-followed">
+          <div class="title">
+            <h3><%= t "views.users.shows.author_followed" %></h3>
+          </div>
+          <%= render "author_followed" %>
+        </div>
       </div>
     </div>
   </div>
