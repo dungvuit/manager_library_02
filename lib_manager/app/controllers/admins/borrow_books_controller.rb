@@ -7,6 +7,10 @@ class Admins::BorrowBooksController < ApplicationController
 
   def index
     @borrow_books = BorrowBook.pagination params[:page]
+    respond_to do |format|
+      format.html
+      format.xls {send_data @borrow_books.to_csv(col_sep: "\t")}
+    end
   end
 
   def update

@@ -22,4 +22,15 @@ class BorrowBook < ApplicationRecord
       errors.add :date_return, I18n.t("models.borrow_books.add_errors_return_nil")
     end
   end
+
+  class << self
+    def to_csv options = {}
+      CSV.generate options do |csv|
+        csv << column_names
+        all.each do |borrow|
+          csv << borrow.attributes.values_at(*column_names)
+        end
+      end
+    end
+  end
 end

@@ -13,4 +13,15 @@ class Author < ApplicationRecord
     source_type: Book.name, source: :targetable
   has_many :follower_users, through: :relationships,
     source_type: User.name, source: :ownerable
+
+  class << self
+    def to_csv options = {}
+      CSV.generate options do |csv|
+        csv << column_names
+        all.each do |author|
+          csv << author.attributes.values_at(*column_names)
+        end
+      end
+    end
+  end
 end
