@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :check_book_exist, :user_rating, only: :show
 
   def index
-    @categories = Category.all
+    @categories = Category.pluck :name
     if params[:category_id].present?
       find_category
       @books = @category.books.pagination params[:page]

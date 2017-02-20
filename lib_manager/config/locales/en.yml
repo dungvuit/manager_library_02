@@ -34,6 +34,7 @@ en:
           btn_accept: "Accept"
           btn_reject: "Reject"
           btn_return: "Return"
+          btn_delete: "Delete"
     menu:
       home: "Home"
       admin: "Admin"
@@ -163,7 +164,7 @@ en:
         button_search: "Search"
         input_name: "Input Book Name"
         input_author: "Input Book Author"
-        input_category: "Input Book Category"
+        input_category: "Choose Category"
         input_publisher: "Input Book Publisher"
       shows:
         your_rate: "Your rate is :"
@@ -246,6 +247,7 @@ en:
         danger:
           create: "Borrow Book Failed"
           deleted: "Deleted Failed"
+          warning: "The book was out in library"
     rating:
       flashs:
         success:

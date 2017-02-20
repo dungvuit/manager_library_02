@@ -383,6 +383,197 @@
             }
           }
         }
+        .author-followed {
+          .title {
+            font-size: 25px;
+            text-align: center;
+            padding-bottom: 30px;
+          }
+        }
+      }
+    }
+    #author-show {
+      .author-profile {
+        line-height: 3;
+        .avatar {
+          padding-bottom: 10px;
+        }
+        .stats {
+          overflow: auto;
+          margin-top: 0;
+          padding: 0;
+          a {
+            float: left;
+            padding: 0 10px;
+            border-left: 1px solid $gray-lighter;
+            color: gray;
+            &:first-child {
+              padding-left: 0;
+              border: 0;
+            }
+            &:hover {
+              text-decoration: none;
+              color: blue;
+            }
+          }
+          strong {
+            display: block;
+          }
+        }
+      }
+      .author-content {
+        .list-books {
+          .block-book {
+            .block {
+              min-height: 180px;
+              .image {
+                margin-top: 15px;
+              }
+              .caption {
+                padding-left: 20px;
+                .author {
+                  span {
+                    display: inline-block;
+                    ul {
+                      padding-left: 0px;
+                      list-style: none;
+                    }
+                  }
+                }
+                .category {
+                  span {
+                    display: inline-block;
+                    ul {
+                      padding-left: 0px;
+                      list-style: none;
+                    }
+                  }
+                }
+                a {
+                  &:hover {
+                    text-decoration: none;
+                    color: #5fcf80
+                  }
+                  .block {
+                    min-height: 250px;
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .user-following {
+          .list-users {
+            .block {
+              padding: 15px;
+              border-bottom: 1px solid #eee;
+              .image {
+                display: inline-block;
+              }
+              .name {
+                display: inline-block;
+                padding-left: 30px;
+              }
+              &:hover {
+                text-decoration: none;
+                color: #5fcf80;
+              }
+            }
+          }
+        }
+      }
+    }
+    #author-show {
+      .author-profile {
+        line-height: 3;
+        .avatar {
+          padding-bottom: 10px;
+        }
+        .stats {
+          overflow: auto;
+          margin-top: 0;
+          padding: 0;
+          a {
+            float: left;
+            padding: 0 10px;
+            border-left: 1px solid $gray-lighter;
+            color: gray;
+            &:first-child {
+              padding-left: 0;
+              border: 0;
+            }
+            &:hover {
+              text-decoration: none;
+              color: blue;
+            }
+          }
+          strong {
+            display: block;
+          }
+        }
+      }
+      .author-content {
+        .list-books {
+          .block-book {
+            .block {
+              min-height: 180px;
+              .image {
+                margin-top: 15px;
+              }
+              .caption {
+                padding-left: 20px;
+                .author {
+                  span {
+                    display: inline-block;
+                    ul {
+                      padding-left: 0px;
+                      list-style: none;
+                    }
+                  }
+                }
+                .category {
+                  span {
+                    display: inline-block;
+                    ul {
+                      padding-left: 0px;
+                      list-style: none;
+                    }
+                  }
+                }
+                a {
+                  &:hover {
+                    text-decoration: none;
+                    color: #5fcf80
+                  }
+                  .block {
+                    min-height: 250px;
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .user-following {
+          .list-users {
+            .block {
+              padding: 15px;
+              border-bottom: 1px solid #eee;
+              .image {
+                display: inline-block;
+              }
+              .name {
+                display: inline-block;
+                padding-left: 30px;
+              }
+              &:hover {
+                text-decoration: none;
+                color: #5fcf80;
+              }
+            }
+          }
+        }
       }
     }
     #book {
@@ -394,6 +585,7 @@
           padding: 10px;
           border: none;
           border: 1px solid #5fcf80;
+          border-radius: 5px;
           &#search_status {
             width: 2% !important;
           }
@@ -402,6 +594,14 @@
             border-radius: 0px;
             background: #5fcf80;
           }
+          &:focus {
+            outline: none;
+          }
+        }
+        #search_category_name {
+          height: 41px;
+          border: 1px solid  #5fcf80;
+          background: white;
           &:focus {
             outline: none;
           }

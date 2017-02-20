@@ -2,7 +2,7 @@ class BorrowBook < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
-  enum status: [:pending, :borrowing, :reject]
+  enum status: [:pending, :borrowing, :return, :reject]
 
   validates :user, presence: true
   validates :book, presence: true

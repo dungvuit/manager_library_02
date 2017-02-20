@@ -14,11 +14,23 @@ class Admins::BorrowBooksController < ApplicationController
   end
 
   def update
-    @borrow = @borrow_book.update_attributes status: params[:status]
-    type = @borrow ? "success" : "danger"
     if params[:status] == "borrowing"
       find_book
-      @book.update_attributes amount: @book.amount - Settings.borrow
+      if @book.amount == Settings.zero
+        flash[:danger] = t "controller.borrow_books.flashs.danger.warning"
+      else
+        @borrow = @borrow_book.update_attributes status: params[:status]
+        type = @borrow ? "success" : "danger"
+        amount = @book.amount - Settings.borrow
+        @book.update_attributes amount: amount
+      end
+    end
+    if params[:status] == "return"
+      find_book
+      @borrow = @borrow_book.update_attributes status: params[:status]
+      type = @borrow ? "success" : "danger"
+      amount = @book.amount + Settings.borrow
+      @book.update_attributes amount: amount
     end
     flash[:"#{type}"] = t "controllers.borrow_books.flashs.#{type}.delete"
     redirect_to admins_borrow_books_path
@@ -26,7 +38,6 @@ class Admins::BorrowBooksController < ApplicationController
 
   def destroy
     type = @borrow_book.destroy ? "success" : "danger"
-    @book.update_attributes amount: @book.amount + Settings.borrow
     flash[:"#{type}"] = t "controllers.borrow_books.flashs.#{type}.deleted"
     redirect_to admins_borrow_books_path
   end
