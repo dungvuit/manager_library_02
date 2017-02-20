@@ -7,7 +7,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :weight
       t.string :language
       t.string :description
-      t.float :rating
+      t.float :rating, default: 0
       t.integer :publisher_id
       t.string :image
 

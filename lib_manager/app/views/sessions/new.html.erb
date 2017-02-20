@@ -1,4 +1,4 @@
-<% provide :title, t("views.user.signins.login") %>
+<% provide :title, t("views.users.signins.login") %>
 <div id="log-in" class="user-form">
   <h1><%= t "views.user.signins.login" %></h1>
 
@@ -17,10 +17,10 @@
           <span><%= t "views.user.signins.remember_me" %></span>
         <% end %>
 
-        <%= f.submit t("views.user.signins.login"), class: "btn btn-primary" %>
+        <%= f.submit t("views.users.signins.login"), class: "btn btn-primary" %>
       <% end %>
 
-      <p><%= t "views.user.signins.new_user" %>?
+      <p><%= t "views.users.signins.new_user" %>?
         <%= link_to t("views.user.signins.sign-up"), signup_path %></p>
     </div>
   </div>

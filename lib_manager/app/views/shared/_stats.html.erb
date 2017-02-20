@@ -1,13 +1,15 @@
 <div class="stats">
-  <%= link_to "#" do %>
-    <strong id="following" class="stat">
-      <%= current_user.following.count %>
-    </strong>
-    <%= t "views.user.shows.following" %>
+  <% unless @author.present? %>
+    <%= link_to "#" do %>
+      <strong id="following" class="stat">
+        <%= current_user.following.count %>
+      </strong>
+      <%= t "views.user.shows.following" %>
+    <% end %>
   <% end %>
   <%= link_to "#" do %>
     <strong id="followers" class="stat">
-      <%= current_user.followers.count %>
+      <%= @author.present? ? @author.follower_users.count : current_user.followers.count %>
     </strong>
     <%= t "views.user.shows.follower" %>
   <% end %>

@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   include CheckObject
 
-  before_action :check_book_exist, only: :show
+  before_action :check_book_exist, :user_rating, only: :show
 
   def index
     @categories = Category.all
@@ -41,5 +41,9 @@ class BooksController < ApplicationController
       @books = @books.search_book params[:search][:book_name], params[:search][:author_name],
         params[:search][:category_name], params[:search][:publisher_name]
     end
+  end
+
+  def user_rating
+    @user_rating = current_user.ratings.find_by book_id: params[:id] if logged_in?
   end
 end

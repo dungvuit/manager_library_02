@@ -95,7 +95,7 @@ en:
       setting: "Setting"
       logout: "Log out"
       list_book: "List Book"
-    user:
+    users:
       show: "List User"
       show_book: "List Book"
       show_publisher: "List Publisher"
@@ -135,6 +135,7 @@ en:
         user_follower: "User Follower"
         address: "Address :"
         name: "Name :"
+        author_book: "Author's Book"
         book_borrow: "Book Borrowed"
         book_followed: "Book Followed"
         user_followed: "User Followed"
@@ -165,8 +166,14 @@ en:
         input_category: "Input Book Category"
         input_publisher: "Input Book Publisher"
       shows:
+        your_rate: "Your rate is :"
+        leave_rate: "Leave your rate"
+        btn_rate: "Rate"
+        label_edit: "Edit your rate"
+        btn_edit: "Edit"
         follow_book: "Follow this book"
         unfollow_book: "Unfollow this book"
+        rating: "Rate :"
         author: "Author :"
         publisher: "Publisher :"
         category: "Category :"
@@ -181,6 +188,9 @@ en:
         input_date: "Input Date Return :"
         button_borrow: "Borrow"
         user_cant_borrow_book: "You can borow this book. Because You overdue 3 time"
+    authors:
+      btn_follow: "Follow Author"
+      btn_unfollow: "Unfollw Author"
     home:
       title: "Welcome to Open Library"
     footer:
@@ -232,10 +242,18 @@ en:
       flashs:
         success:
           deleted: "Book Deleted"
-          create: "Wait accepot borrow book"
+          create: "Wait accept"
         danger:
-          create: "Borrow Book Faild"
-          delete: "Deleted Faild"
+          create: "Borrow Book Failed"
+          deleted: "Deleted Failed"
+    rating:
+      flashs:
+        success:
+          create: "Rate complete"
+          update: "Updated your rate"
+        danger:
+          create: "Rate Fail"
+          update: "Update Fail"
   models:
     borrow_books:
       add_errors_return: "should be large than today"

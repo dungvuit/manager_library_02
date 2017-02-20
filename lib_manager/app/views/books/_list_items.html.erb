@@ -16,7 +16,7 @@
               <span>
                 <ul>
                   <% book.authors.each do |author| %>
-                    <li><%= author.name %></li>
+                    <li><%= link_to author.name, author_path(author) %></li>
                   <% end %>
                 </ul>
               </span>
@@ -34,6 +34,10 @@
                 <% end %>
                 </ul>
               </span>
+            </div>
+            <div class="rating">
+              <%= t "views.books.shows.rating" %>
+              <%= book.rating.present? ? book.rating : Settings.zero %>
             </div>
           </div>
           <div class="clearfix"></div>

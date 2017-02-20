@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :follow_books, only: [:create, :destroy]
     resources :follow_users, only: [:index, :create, :destroy]
     resources :follow_authors, only: [:create, :destroy]
+    resources :ratings, only: [:create, :update]
   end
   resources :authors, only: :show
   resources :books, only: [:index, :show] do

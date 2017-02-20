@@ -51,7 +51,7 @@
             <h3><%= t "views.users.shows.list_book_following" %></h3>
           </div>
           <div class="list-books">
-            <%= render "list_book_following" %>
+            <%= render "/books/list_items" %>
             <% will_paginate @books %>
           </div>
         </div>

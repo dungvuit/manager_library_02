@@ -6,8 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @users = @user.following.pagination params[:page]
-    @borrow_books = @user.borrow_books
-    @following_books = @user.books
+    @borrow_books = @user.borrow_books.pagination params[:page]
+    @authors = @user.following_author.pagination params[:page]
+    @books = @user.books.pagination params[:page]
     if params[:relationship].present?
       @users = if params[:relationship] == "following"
         @user.following.pagination params[:page]

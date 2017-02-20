@@ -2,7 +2,37 @@
 <div id="book-show">
   <div class="row">
     <div class="cover col-xs-4">
-      <%= image_for @book , size: Settings.size_image_cover %>
+      <div class="image-cover">
+        <%= image_for @book , size: Settings.size_image_cover %>
+      </div>
+      <div class="user-activities">
+        <% if logged_in? %>
+          <div class="user-follow">
+            <%= render "follow_form" %>
+          </div>
+          <div class="borrow-book">
+            <p><%= t "views.book.shows.borrow_this_book" %></p>
+            <% if current_user.borrow_books.overdue.count < 3 %>
+              <div class="form-borrow">
+                <div class="show-errors col-xs-4"></div>
+                <div class="clearfix"></div>
+                <%= form_for :borrow_book, url: user_borrow_books_path(current_user),
+                  remote: true do |f| %>
+                  <%= f.label t("views.books.shows.input_date") %>
+                  <%= f.date_field :date_return %>
+
+                  <%= f.hidden_field :date_borrow , value: Date.today %>
+                  <%= f.hidden_field :book_id, value: @book.id %>
+
+                  <%= f.submit t("views.books.shows.button_borrow"), class: "submit" %>
+                <% end %>
+              </div>
+            <% else %>
+              <p class="danger"><%= t "views.books.shows.user_cant_borrow_book" %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="content col-xs-8">
       <h3><%= @book.name %></h3>
@@ -11,7 +41,7 @@
           <span><%= t "views.books.shows.author" %></span>
           <ul class="list">
             <% @book.authors.each do |author| %>
-              <%= link_to "#" do %>
+              <%= link_to author_path author do %>
                 <li><%= author.name %></li>
               <% end %>
             <% end %>
@@ -21,7 +51,7 @@
           <span><%= t "views.books.shows.category" %></span>
           <ul class="list">
             <% @book.categories.each do |category| %>
-              <%= link_to "#" do %>
+              <%= link_to books_path search: {category_name: category.name} do %>
                 <li><%= category.name %></li>
               <% end %>
             <% end %>
@@ -51,35 +81,55 @@
           <span><%= t "views.books.shows.description" %></span>
           <%= @book.description %>
         </li>
+        <li>
+          <span><%= t "views.books.shows.rating" %></span>
+          <%= @book.rating.present? ? @book.rating : Settings.zero %>
+        </li>
+        <% if logged_in? %>
+          <% if @user_rating.present? %>
+            <li>
+              <div class="rate-number">
+                <p><%= t "views.books.shows.your_rate" %> <%= @user_rating.rate %></p>
+              </div>
+              <div class="form-edit-rate">
+                <button class="btn btn-primary" type="button" data-toggle="collapse"
+                  data-target="#collapseExample" aria-expanded="false"
+                  aria-controls="collapseExample">
+                  <%= t "views.books.shows.btn_edit" %>
+                </button>
+                <div class="collapse" id="collapseExample">
+                  <div class="well">
+                    <%= form_for [@current_user, @user_rating] do |f| %>
+                      <%= f.hidden_field :book_id, value: @book.id %>
+
+                      <%= f.label t "views.books.shows.label_edit" %>
+                      <%= f.number_field :rate %>
+
+                      <%= f.submit t "views.books.shows.btn_edit" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          <% else %>
+            <li>
+              <div class="rating">
+                <%= form_for :rating, url: user_ratings_path(user_id: current_user) do |f| %>
+                  <%= f.hidden_field :book_id, value: @book.id %>
+
+                  <%= f.label t "views.books.shows.leave_rate" %>
+                  <%= f.number_field :rate %>
+
+                  <%= f.submit t("views.books.shows.btn_rate"), class: "btn btn-default" %>
+                <% end %>
+                <div class="clearfix"></div>
+              </div>
+            <% end %>
+            </li>
+        <% end %>
       </ul>
     </div>
   </div>
-  <% if logged_in? %>
-    <div class="user-follow">
-      <%= render "follow_form" %>
-    </div>
-    <div class="borrow-book">
-      <p><%= t "views.book.shows.borrow_this_book" %></p>
-      <% if current_user.borrow_books.overdue.count < 3 %>
-        <div class="form-borrow">
-          <div class="show-errors col-xs-4"></div>
-          <div class="clearfix"></div>
-          <%= form_for :borrow_book, url: user_borrow_books_path(current_user),
-            remote: true do |f| %>
-            <%= f.label t("views.books.shows.input_date") %>
-            <%= f.date_field :date_return %>
-
-            <%= f.hidden_field :date_borrow , value: Date.today %>
-            <%= f.hidden_field :book_id, value: @book.id %>
-
-            <%= f.submit t("views.books.shows.button_borrow"), class: "submit" %>
-          <% end %>
-        </div>
-      <% else %>
-        <p class="danger"><%= t "views.books.shows.user_cant_borrow_book" %></p>
-      <% end %>
-    </div>
-  <% end %>
   <hr>
   <div class="comment">
     <span class="leave"><%= t "views.books.shows.leave" %></span>
