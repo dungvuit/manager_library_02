@@ -1,0 +1,28 @@
+<% @authors.each_slice Settings.slice do |list_authors| %>
+  <div class="row">
+    <% list_authors.each do |author| %>
+      <div class="block-book col-xs-6">
+        <div class="block thumbnail">
+          <div class="image col-xs-4">
+            <%= link_to image_for(author, size: Settings.size), author_path(author) %>
+          </div>
+          <div class="caption col-xs-8">
+            <div class="name">
+              <span><%= t "views.books.indexs.name" %></span>
+              <span><%= link_to author.name, author_path(author) %></span>
+            </div>
+            <div class="address">
+              <span><%= t "views.books.indexs.author" %></span>
+              <span><%= author.address %></span>
+            </div>
+            <div class="description">
+              <span><%= t "views.books.shows.description" %></span>
+              <span><%= author.description %></span>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

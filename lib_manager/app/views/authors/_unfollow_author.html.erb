@@ -1,0 +1,5 @@
+<%= form_for :unfollow_author, url: user_follow_author_path(current_user.id, @author.id),
+  method: :delete, remote: true do |f| %>
+  <%= hidden_field_tag :book_id, @author.id %>
+  <%= f.submit t("views.authors.btn_unfollow"), class: "btn btn-danger" %>
+<% end %>

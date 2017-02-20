@@ -1,0 +1,59 @@
+<% provide :title, @author.name %>
+<div id="author-show">
+  <div class="author-profile col-xs-3">
+    <div class="avatar">
+      <%= image_for @author %>
+    </div>
+    <div class="name">
+      <span><%= t "views.users.shows.name" %></span>
+      <%= @author.name %>
+    </div>
+    <div class="address">
+      <span><%= t "views.users.shows.address" %></span>
+      <%= @author.address %>
+    </div>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+    <% if logged_in? %>
+      <div class="form-follow">
+        <%= render "form_follow" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="author-content col-xs-9">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a data-toggle="tab" href="#home"><%= t "views.users.shows.author_book" %></a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#tab1"><%= t "views.users.shows.user_followed" %></a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <div class="borrow-book">
+          <div class="title">
+            <%= t "views.users.shows.author_book" %>
+          </div>
+          <div class="list-books">
+            <%= render "/books/list_items" %>
+            <% will_paginate @books %>
+          </div>
+        </div>
+      </div>
+      <div id="tab1" class="tab-pane fade">
+        <div class="user-following">
+          <div class="title">
+            <%= t "views.users.shows.user_followed" %>
+          </div>
+          <div class="list-users">
+            <%= render "/users/block_user" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix">
+  </div>
+</div>
