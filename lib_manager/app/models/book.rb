@@ -20,4 +20,15 @@ class Book < ApplicationRecord
     .joins(:categories).where("categories.name LIKE ?", "%#{category_name}%")
     .joins(:publisher).where "publishers.name LIKE ?","%#{publisher_name}%"
   end
+
+  class << self
+    def to_csv options = {}
+      CSV.generate options do |csv|
+        csv << column_names
+        all.each do |book|
+          csv << book.attributes.values_at(*column_names)
+        end
+      end
+    end
+  end
 end

@@ -5,7 +5,11 @@ class Admins::PublishersController < ApplicationController
   before_action :find_user, except: [:index, :new, :create]
 
   def index
-    @publishers = Publisher.paginate page: params[:page]
+    @publishers = Publisher.sort_by_create_at.paginate page: params[:page]
+    respond_to do |format|
+      format.html
+      format.xls {send_data @publishers.to_csv(col_sep: "\t")}
+    end
   end
 
   def new

@@ -8,6 +8,10 @@ class Admins::AuthorsController < ApplicationController
 
   def index
     @authors = Author.sort_by_create_at.paginate page: params[:page]
+    respond_to do |format|
+      format.html
+      format.xls {send_data @authors.to_csv(col_sep: "\t")}
+    end
   end
 
   def new
