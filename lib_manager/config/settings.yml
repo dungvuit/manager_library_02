@@ -8,3 +8,4 @@ size_image: "50"
 size_image_cover: "250x350"
 overdue: 3
 borrow: 1
+zero: 0

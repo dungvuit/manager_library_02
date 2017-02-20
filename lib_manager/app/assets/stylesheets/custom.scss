@@ -116,7 +116,6 @@
         }
       }
       .user-content {
-
         .borrow-book {
           padding-top: 30px;
           .title {
@@ -174,6 +173,11 @@
           }
         }
         .user-follow {
+          .title {
+            font-size: 25px;
+            text-align: center;
+            padding-bottom: 30px;
+          }
           .list-user {
             .block {
               padding: 15px;
@@ -182,7 +186,199 @@
                 display: inline-block;
               }
               .name {
+                padding-left: 30px;
                 display: inline-block;
+              }
+            }
+          }
+        }
+        .author-followed {
+          .title {
+            font-size: 25px;
+            text-align: center;
+            padding-bottom: 30px;
+          }
+        }
+      }
+    }
+    #author-show {
+      .author-profile {
+        line-height: 3;
+        .avatar {
+          padding-bottom: 10px;
+        }
+        .stats {
+          overflow: auto;
+          margin-top: 0;
+          padding: 0;
+          a {
+            float: left;
+            padding: 0 10px;
+            border-left: 1px solid $gray-lighter;
+            color: gray;
+            &:first-child {
+              padding-left: 0;
+              border: 0;
+            }
+            &:hover {
+              text-decoration: none;
+              color: blue;
+            }
+          }
+          strong {
+            display: block;
+          }
+        }
+      }
+      .author-content {
+        .list-books {
+          .block-book {
+            .block {
+              min-height: 180px;
+              .image {
+                margin-top: 15px;
+              }
+              .caption {
+                padding-left: 20px;
+                .author {
+                  span {
+                    display: inline-block;
+                    ul {
+                      padding-left: 0px;
+                      list-style: none;
+                    }
+                  }
+                }
+                .category {
+                  span {
+                    display: inline-block;
+                    ul {
+                      padding-left: 0px;
+                      list-style: none;
+                    }
+                  }
+                }
+                a {
+                  &:hover {
+                    text-decoration: none;
+                    color: #5fcf80
+                  }
+                  .block {
+                    min-height: 250px;
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .user-following {
+          .list-users {
+            .block {
+              padding: 15px;
+              border-bottom: 1px solid #eee;
+              .image {
+                display: inline-block;
+              }
+              .name {
+                display: inline-block;
+                padding-left: 30px;
+              }
+              &:hover {
+                text-decoration: none;
+                color: #5fcf80;
+              }
+            }
+          }
+        }
+      }
+    }
+    #author-show {
+      .author-profile {
+        line-height: 3;
+        .avatar {
+          padding-bottom: 10px;
+        }
+        .stats {
+          overflow: auto;
+          margin-top: 0;
+          padding: 0;
+          a {
+            float: left;
+            padding: 0 10px;
+            border-left: 1px solid $gray-lighter;
+            color: gray;
+            &:first-child {
+              padding-left: 0;
+              border: 0;
+            }
+            &:hover {
+              text-decoration: none;
+              color: blue;
+            }
+          }
+          strong {
+            display: block;
+          }
+        }
+      }
+      .author-content {
+        .list-books {
+          .block-book {
+            .block {
+              min-height: 180px;
+              .image {
+                margin-top: 15px;
+              }
+              .caption {
+                padding-left: 20px;
+                .author {
+                  span {
+                    display: inline-block;
+                    ul {
+                      padding-left: 0px;
+                      list-style: none;
+                    }
+                  }
+                }
+                .category {
+                  span {
+                    display: inline-block;
+                    ul {
+                      padding-left: 0px;
+                      list-style: none;
+                    }
+                  }
+                }
+                a {
+                  &:hover {
+                    text-decoration: none;
+                    color: #5fcf80
+                  }
+                  .block {
+                    min-height: 250px;
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .user-following {
+          .list-users {
+            .block {
+              padding: 15px;
+              border-bottom: 1px solid #eee;
+              .image {
+                display: inline-block;
+              }
+              .name {
+                display: inline-block;
+                padding-left: 30px;
+              }
+              &:hover {
+                text-decoration: none;
+                color: #5fcf80;
               }
             }
           }
@@ -278,6 +474,12 @@
       .cover {
         img {
           min-width: 230px;
+        }
+        .user-activities {
+          margin-top: 40px;
+          .borrow-book {
+            margin-top: 20px;
+          }
         }
       }
       .content {

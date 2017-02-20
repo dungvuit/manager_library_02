@@ -1,10 +1,12 @@
 <% @users.each do |user| %>
-  <div class="block">
-    <div class="image">
-      <%= image_for user %>
+  <%= link_to user_path user do %>
+    <div class="block">
+      <div class="image">
+        <%= image_for user, size: Settings.size_avatar %>
+      </div>
+      <div class="name">
+        <%= user.name %>
+      </div>
     </div>
-    <div class="name">
-      <%= user.name %>
-    </div>
-  </div>
+  <% end %>
 <% end %>

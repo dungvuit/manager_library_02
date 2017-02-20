@@ -24,6 +24,12 @@ class Book < ApplicationRecord
     .joins(:publisher).where "publishers.name LIKE ?","%#{publisher_name}%"
   end
 
+  def update_rate_numebr
+    rate = ratings.pluck(:rate).compact
+    avg = rate.count == Settings.zero ? Settings.zero : rate.sum/rate.count
+    update_attributes rating: avg
+  end
+
   class << self
     def to_csv options = {}
       CSV.generate options do |csv|
