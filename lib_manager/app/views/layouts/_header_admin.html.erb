@@ -42,7 +42,8 @@
           <%= link_to t("views.menu.manager_publisher"), admins_publishers_path %></li>
         <li class="<%= "actived" if current_page?(admins_authors_path) %>">
           <%= link_to t("views.menu.manager_author"), admins_authors_path %></li>
-        <li><%= link_to t("views.menu.manager_category"), "#" %></li>
+        <li class="<%= "actived" if current_page?(admins_categories_path) %>">
+          <%= link_to t("views.menu.manager_category"), admins_categories_path %></li>
         <li><%= link_to t("views.menu.manager_borrow"), admins_borrow_books_path %></li>
       </ul>
     </div>

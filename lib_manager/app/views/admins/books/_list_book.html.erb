@@ -1,6 +1,5 @@
 <thead>
   <tr>
-    <th><%= t "views.form_book.id" %></th>
     <th><%= t "views.form_book.name" %></th>
     <th><%= t "views.form_book.images" %></th>
     <th><%= t "views.form_book.publisher_year" %></th>
@@ -14,7 +13,6 @@
 <tbody>
   <% @books.each do |book| %>
     <tr class="background-tr">
-      <td><%= book.id %></td>
       <td><%= book.name %></td>
       <td>
       <%= link_to "#", "data-toggle" => "modal", "data-target" => "#book_modal_#{book.id}" do %>
@@ -36,6 +34,6 @@
         <% end %>
       </td>
     </tr>
-	<%= render "layouts/modal", book: book %>
+  <%= render "layouts/modal", book: book %>
   <% end %>
 </tbody>

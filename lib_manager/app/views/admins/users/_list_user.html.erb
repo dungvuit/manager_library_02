@@ -1,7 +1,7 @@
 <thead>
   <tr>
-    <th><%= t "views.form.id" %></th>
     <th><%= t "views.form.name" %></th>
+    <th><%= t "views.form.image" %></th>
     <th><%= t "views.form.email" %></th>
     <th><%= t "views.form.phonenumber" %></th>
     <th><%= t "views.form.address" %></th>
@@ -12,8 +12,8 @@
 <tbody>
   <% @users.each do |user| %>
     <tr class="background-tr">
-      <td><%= user.id %></td>
       <td><%= user.name %></td>
+      <td><%= image_tag user.image, class: "size-img-thumbnail" %></td>
       <td><%= user.email %></td>
       <td><%= user.phonenumber %></td>
       <td><%= user.address %></td>
