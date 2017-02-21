@@ -5,9 +5,19 @@ class Admins::UsersController < ApplicationController
   before_action :find_user, except: [:index, :new, :create]
 
   def index
-    @users = User.sort_by_create_at.paginate page: params[:page]
+    @users = if params[:search].present? && params[:search_by_permision].present?
+      User.search_by_name(params[:search])
+        .search_by_permision(params[:search_by_permision])
+    elsif params[:search].present?
+      User.search_by_name(params[:search])
+    elsif params[:search_by_permision].present?
+      User.search_by_permision(params[:search_by_permision])
+    else
+      User
+    end.sort_by_create_at.paginate page: params[:page]
     respond_to do |format|
       format.html
+      format.js
       format.xls {send_data @users.to_csv(col_sep: "\t")}
     end
   end

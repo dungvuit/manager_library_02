@@ -23,6 +23,9 @@ en:
   views:
     show_author: "Show author"
     show_book: "Show book"
+    search: "Search"
+    input:
+      value: "Input Value"
     modal:
       close: "Close"
       title_details: "Book Details"
