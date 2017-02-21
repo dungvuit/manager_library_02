@@ -1,6 +1,5 @@
 <thead>
   <tr>
-    <th><%= t "views.form_publisher.id" %></th>
     <th><%= t "views.form_publisher.name" %></th>
     <th><%= t "views.form_publisher.address" %></th>
     <th><%= t "views.form_publisher.phone" %></th>
@@ -11,7 +10,6 @@
 <tbody>
   <% @publishers.each do |publisher| %>
     <tr class="background-tr">
-      <td><%= publisher.id %></td>
       <td><%= publisher.name %></td>
       <td><%= publisher.address %></td>
       <td><%= publisher.phone %></td>

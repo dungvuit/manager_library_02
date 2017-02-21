@@ -1,17 +1,17 @@
-<% provide :title, t("views.user.signup.create_publisher") %>
-<% provide :button_text, t("views.user.signup.create_publisher") %>
+<% provide :title, t("views.users.signup.create_publisher") %>
+<% provide :button_text, t("views.users.signup.create_publisher") %>
 <div class="main-content">
   <div class="container">
     <div class="info-manager">
       <div class="title-manager pull-left">
-        <h2><%= t "views.user.signup.create_publisher" %></h2>
+        <h2><%= t "views.users.signup.create_publisher" %></h2>
       </div>
       <div class="button-manager pull-right">
         <ul>
           <li>
             <%= link_to admins_publishers_path(format: "xls") do %>
               <i class="glyphicon glyphicon-export"></i>
-              <%= t "views.user.export" %>
+              <%= t "views.users.export" %>
             <% end %>
           </li>
         </ul>

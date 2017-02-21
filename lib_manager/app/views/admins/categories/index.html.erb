@@ -23,12 +23,23 @@
       </div>
       <div class="clearfix"></div>
     </div>
+    <div class="row wrap-search">
+      <div class="col-md-6 col-md-offset-6">
+        <%= form_tag admins_categories_path, method: :get, remote: true do %>
+          <div class="form-group pull-right">
+            <%= text_field_tag :search, params[:search], placeholder: t("views.input.value") %>
+            <%= submit_tag t("views.search"), class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <div class="table-responsive">
-      <%= will_paginate %> 
-        <table class="table table-bordered table-hover">
-         <%= render "list_category" %>
-        </table>
-      <%= will_paginate %> 
+      <table class="table table-bordered table-hover">
+        <%= render "list_category" %>
+      </table>
+      <div class="pagination">
+        <%= will_paginate %>
+      </div>
     </div>
   </div>
 </div>

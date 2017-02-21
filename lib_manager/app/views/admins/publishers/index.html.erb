@@ -1,34 +1,45 @@
-<% provide :title, t("views.user.show_publisher") %>
+<% provide :title, t("views.users.show_publisher") %>
 <div class="main-content">
   <div class="container">
     <div class="info-manager">
       <div class="title-manager pull-left">
-        <h2><%= t "views.user.show_publisher" %></h2>
+        <h2><%= t "views.users.show_publisher" %></h2>
       </div>
       <div class="button-manager pull-right">
         <ul>
           <li>
             <%= link_to new_admins_publisher_path do %>
               <i class="glyphicon glyphicon-plus"></i>
-              <%= t "views.user.create" %>
+              <%= t "views.users.create" %>
             <% end %>
           </li>
           <li>
             <%= link_to admins_publishers_path(format: "xls") do %>
               <i class="glyphicon glyphicon-export"></i>
-              <%= t "views.user.export" %>
+              <%= t "views.users.export" %>
             <% end %>
           </li>
         </ul>
       </div>
       <div class="clearfix"></div>
     </div>
+    <div class="row wrap-search">
+      <div class="col-md-6 col-md-offset-6">
+        <%= form_tag admins_publishers_path, method: :get, remote: true do %>
+          <div class="form-group pull-right">
+            <%= text_field_tag :search, params[:search], placeholder: t("views.input.value") %>
+            <%= submit_tag t("views.search"), class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <div class="table-responsive">
-      <%= will_paginate %> 
-        <table class="table table-bordered table-hover">
-         <%= render "list_publisher" %>
-        </table>
-      <%= will_paginate %> 
+      <table class="table table-bordered table-hover">
+        <%= render "list_publisher" %>
+      </table>
+      <div class="pagination">
+        <%= will_paginate %>
+      </div>
     </div>
   </div>
 </div>

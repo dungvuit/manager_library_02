@@ -4,6 +4,8 @@ class Admins::BooksController < ApplicationController
   before_action :logged_in_user, :verify_admin
   before_action :find_book, except: [:index, :new, :create]
   before_action :load_publishers, only: [:new, :edit]
+  before_action :load_authors, only: [:new, :edit]
+  before_action :load_categories, only: [:new, :edit]
 
   def index
     @books = Book.sort_by_create_at.paginate page: params[:page]
@@ -57,6 +59,7 @@ class Admins::BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit :name, :image, :publisher_year, :amount,
-      :weight, :language, :description, :rating, :publisher_id
+      :weight, :language, :description, :rating, :publisher_id, :author_ids,
+      :category_ids
   end
 end

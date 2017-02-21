@@ -7,6 +7,8 @@
     <th><%= t "views.form_book.weight" %></th>
     <th><%= t "views.form_book.language" %></th>
     <th><%= t "views.form_publisher.name" %></th>
+    <th><%= t "views.form_author.name" %></th>
+    <th><%= t "views.form_category.name" %></th>
     <th class="action"></th>
   </tr>
 </thead>
@@ -24,6 +26,12 @@
       <td><%= book.weight %></td>
       <td><%= book.language %></td>
       <td><%= book.publisher.name %></td>
+      <% book.authors.each do |author| %>
+        <td><%= author.name %></td>
+      <% end %>
+      <% book.categories.each do |category| %>
+        <td><%= category.name %></td>
+      <% end %>
       <td>
         <%= link_to edit_admins_book_path book do %>
           <i class="glyphicon glyphicon-pencil"></i>

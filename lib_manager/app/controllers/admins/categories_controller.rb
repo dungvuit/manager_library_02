@@ -5,9 +5,14 @@ class Admins::CategoriesController < ApplicationController
   before_action :find_category, except: [:index, :new, :create]
 
   def index
-    @categories = Category.sort_by_create_at.paginate page: params[:page]
+    @categories = if params[:search].present?
+      Category.search_by_name(params[:search])
+    else
+      Category
+    end.sort_by_create_at.paginate page: params[:page]
     respond_to do |format|
       format.html
+      format.js
       format.xls {send_data @categories.to_csv(col_sep: "\t")}
     end
   end
