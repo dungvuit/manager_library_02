@@ -4,6 +4,7 @@ class Category < ApplicationRecord
     source_type: Book.name, source: :targetable
 
   scope :sort_by_create_at, -> {order created_at: :desc}
+  scope :search_by_name, -> search {where "name LIKE ?", "%#{search}%"}
 
   class << self
     def to_csv options = {}

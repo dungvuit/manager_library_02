@@ -89,6 +89,8 @@ en:
       des: "Description"
       publisher_id: "Publisher ID"
       image: "Avatar Author"
+    form_category:
+      name: "Category name"
     header:
       search: "Search"
       home: "Home"

@@ -12,6 +12,19 @@ class Admins::PublishersController < ApplicationController
     end
   end
 
+  def index
+    @publishers = if params[:search].present?
+      Publisher.search_by_name(params[:search])
+    else
+      Publisher
+    end.sort_by_create_at.paginate page: params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+      format.xls {send_data @publishers.to_csv(col_sep: "\t")}
+    end
+  end
+
   def new
     @publisher = Publisher.new
   end

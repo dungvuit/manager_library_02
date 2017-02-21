@@ -18,4 +18,12 @@ class ApplicationController < ActionController::Base
   def load_publishers
     @publisher = Publisher.all.collect {|publisher| [publisher.name, publisher.id]}
   end
+
+  def load_authors
+    @author = Author.all.collect {|author| [author.name, author.id]}
+  end
+
+  def load_categories
+    @category = Category.all.collect {|category| [category.name, category.id]}
+  end
 end
