@@ -64,7 +64,7 @@
             class: "col-form-label" %>
         </div>
         <div class="col-md-6">
-        <%= f.select :publisher_id, @publisher %>
+        <%= f.select :publisher_id, @supports.publishers %>
         </div>
       </div>
       <div class="form-group row">
@@ -73,7 +73,7 @@
             class: "col-form-label" %>
         </div>
         <div class="col-md-6">
-          <%= f.select :author_ids, @author %>
+          <%= f.select :author_ids, @supports.authors %>
         </div> 
       </div>
       <div class="form-group row">
@@ -82,7 +82,7 @@
             class: "col-form-label" %>
         </div>
         <div class="col-md-6">
-          <%= f.select :category_ids, @category %>
+          <%= f.select :category_ids, @supports.categories %>
         </div> 
       </div>
       <div class="form-group row">

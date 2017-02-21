@@ -30,6 +30,20 @@
                 <%= book.publisher.name %>
               <% end %>
             </p>
+            <p><%= t "views.form_author.name" %>:&nbsp;
+              <%= link_to "#" do %>
+                <% book.authors.each do |author| %>
+                  <%= author.name %>
+                <% end %>
+              <% end %>
+            </p>
+            <p><%= t "views.form_category.name" %>:&nbsp;
+              <%= link_to "#" do %>
+                <% book.categories.each do |category| %>
+                  <%= category.name %>
+                <% end %>
+              <% end %>
+            </p>
          </div>
         </div>
       </div>

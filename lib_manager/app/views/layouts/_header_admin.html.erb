@@ -7,14 +7,14 @@
       <div class="username">
         <%= link_to "#" do %>
           <span>
-            <%= t "views.menu.admin" %>
+            <%= current_user.name %>
             <i class="glyphicon glyphicon-triangle-bottom"></i>
           </span>
         <% end %>
       </div>
       <ul>
         <li>
-          <%= link_to "#" do %>
+          <%= link_to logout_path, method: "delete" do %>
             <i class="glyphicon glyphicon-log-out"></i>
             <%= t "views.menu.logout" %>
           <% end %>

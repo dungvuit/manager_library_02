@@ -4,7 +4,7 @@ class Admins::AuthorsController < ApplicationController
   before_action :logged_in_user, :verify_admin
   before_action :find_author, except: [:index, :new, :create]
   before_action :load_author_genders, only: [:new, :edit]
-  before_action :load_publishers, only: [:new, :edit]
+  before_action :load_data, only: [:new, :edit]
 
   def index
     @authors = if params[:search].present?
@@ -29,6 +29,8 @@ class Admins::AuthorsController < ApplicationController
       flash[:success] = t "controllers.authors.author_create"
       redirect_to admins_author_path(@author)
     else
+      load_author_genders
+      load_data
       render :new
     end
   end
@@ -44,6 +46,8 @@ class Admins::AuthorsController < ApplicationController
       redirect_to admins_author_path(@author)
       flash[:success] = t "controllers.authors.author_edit"
     else
+      load_author_genders
+      load_data
       render :edit
     end
   end
@@ -72,6 +76,10 @@ class Admins::AuthorsController < ApplicationController
 
   def author_params
     params.require(:author).permit :name, :gender, :address,
-      :description, :publisher_id, :image
+      :description, :publisher_id, :image, :book_ids
+  end
+
+  def load_data
+    @supports = Supports::Relationship.new
   end
 end

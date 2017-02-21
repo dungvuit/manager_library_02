@@ -1,7 +1,7 @@
 <% provide :title, t("views.books.title") %>
 <div id="book">
   <div class="search-form">
-    <%= form_for :search, url: books_path, method: "get" do |f| %>
+    <%= form_for :search, url: books_path, method: :get do |f| %>
       <%= f.text_field :book_name, placeholder: t("views.books.indexs.input_name") %>
       <%= f.text_field :author_name, placeholder: t("views.books.indexs.input_author") %>
       <%= f.select :category_name, @categories,

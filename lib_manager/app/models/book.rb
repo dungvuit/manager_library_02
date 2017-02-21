@@ -17,6 +17,8 @@ class Book < ApplicationRecord
 
   belongs_to :publisher
 
+  validates :publisher, presence: true
+
   scope :search_book, -> book_name, author_name, category_name, publisher_name do
     where("books.name LIKE ?","%#{book_name}%")
     .joins(:authors).where("authors.name LIKE ?", "%#{author_name}%")

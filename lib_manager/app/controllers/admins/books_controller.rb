@@ -3,14 +3,17 @@ class Admins::BooksController < ApplicationController
 
   before_action :logged_in_user, :verify_admin
   before_action :find_book, except: [:index, :new, :create]
-  before_action :load_publishers, only: [:new, :edit]
-  before_action :load_authors, only: [:new, :edit]
-  before_action :load_categories, only: [:new, :edit]
+  before_action :load_data, only: [:index, :new, :edit]
 
   def index
-    @books = Book.sort_by_create_at.paginate page: params[:page]
+    @books = if params[:category_id].present?
+      Category.find_by(id: params[:category_id]).books
+    else
+      Book
+    end.sort_by_create_at.paginate page: params[:page]
     respond_to do |format|
       format.html
+      format.js
       format.xls {send_data @books.to_csv(col_sep: "\t")}
     end
   end
@@ -25,6 +28,7 @@ class Admins::BooksController < ApplicationController
       flash[:success] = t "controllers.books.book_create"
       redirect_to admins_books_path
     else
+      load_data
       render :new
     end
   end
@@ -37,6 +41,7 @@ class Admins::BooksController < ApplicationController
       redirect_to admins_books_path
       flash[:success] = t "controllers.books.book_edit"
     else
+      load_data
       render :edit
     end
   end
@@ -61,5 +66,9 @@ class Admins::BooksController < ApplicationController
     params.require(:book).permit :name, :image, :publisher_year, :amount,
       :weight, :language, :description, :rating, :publisher_id, :author_ids,
       :category_ids
+  end
+
+  def load_data
+    @supports = Supports::Relationship.new
   end
 end

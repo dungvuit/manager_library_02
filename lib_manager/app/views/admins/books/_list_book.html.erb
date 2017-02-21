@@ -26,12 +26,20 @@
       <td><%= book.weight %></td>
       <td><%= book.language %></td>
       <td><%= book.publisher.name %></td>
-      <% book.authors.each do |author| %>
-        <td><%= author.name %></td>
-      <% end %>
-      <% book.categories.each do |category| %>
-        <td><%= category.name %></td>
-      <% end %>
+      <td>
+        <ul class="text-left">
+          <% book.authors.each do |author| %>
+            <li><%= author.name %></li>
+          <% end %>
+        </ul>
+      </td>
+      <td>
+        <ul class="text-left">
+          <% book.categories.each do |category| %>
+            <li><%= category.name %></li>
+          <% end %>
+        </ul>
+      </td>
       <td>
         <%= link_to edit_admins_book_path book do %>
           <i class="glyphicon glyphicon-pencil"></i>

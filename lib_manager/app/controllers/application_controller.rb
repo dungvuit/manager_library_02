@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
   end
 
   def load_categories
-    @category = Category.all.collect {|category| [category.name, category.id]}
+    @category = Category.all
+  end
+
+  def load_books
+    @book = Book.all.collect {|book| [book.name, book.id]}
   end
 end

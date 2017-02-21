@@ -6,9 +6,42 @@
     <th><%= t "views.form_author.address" %></th>
     <th><%= t "views.form_author.des" %></th>
     <th><%= t "views.form_publisher.name" %></th>
+    <th><%= t "views.form_book.name" %></th>
     <th class="action"></th>
   </tr>
 </thead>
 <tbody>
-  <%= render @authors %>
+  <% @authors.each do |author| %>
+    <tr class="background-tr">
+      <td><%= author.name %></td>
+      <td><%= image_tag author.image, class: "size-img-thumbnail" %></td>
+      <td><%= author.gender %></td>
+      <td><%= author.address %></td>
+      <td><%= author.description %></td>
+      <td>
+        <ul class="text-left">
+          <li><%= author.publisher.name %></li>
+        </ul>
+      </td>
+      <td>
+        <ul class="text-left">
+          <% author.books.each do |book| %>
+            <li><%= book.name %></li>
+          <% end %>
+        </ul>
+      </td>
+      <td>
+        <%= link_to edit_admins_author_path author do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+        <% end %>
+        <%= link_to admins_author_path(author) do %>
+          <i class="glyphicon glyphicon-user"></i>
+        <% end %>
+        <%= link_to admins_author_path(author), method: :delete,
+          data: {confirm: t("views.form.confirm")} do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
 </tbody>

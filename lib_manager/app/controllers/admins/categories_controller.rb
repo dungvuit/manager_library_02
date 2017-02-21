@@ -3,6 +3,7 @@ class Admins::CategoriesController < ApplicationController
 
   before_action :logged_in_user, :verify_admin
   before_action :find_category, except: [:index, :new, :create]
+  before_action :load_data, only: [:new, :edit]
 
   def index
     @categories = if params[:search].present?
@@ -62,6 +63,10 @@ class Admins::CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit :name
+    params.require(:category).permit :name, :book_ids
+  end
+
+  def load_data
+    @supports = Supports::Relationship.new
   end
 end

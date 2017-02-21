@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 20170208144343) do
     t.string   "weight"
     t.string   "language"
     t.string   "description"
-    t.float    "rating"
+    t.float    "rating",         default: 0.0
     t.integer  "publisher_id"
     t.string   "image"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "borrow_books", force: :cascade do |t|

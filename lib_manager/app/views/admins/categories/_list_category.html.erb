@@ -1,6 +1,7 @@
 <thead>
   <tr>
     <th><%= t "views.form_category.id" %></th>
+    <th><%= t "views.form_book.name" %></th>
     <th><%= t "views.form_category.name" %></th>
     <th class="action"></th>
   </tr>
@@ -9,6 +10,13 @@
   <% @categories.each do |category| %>
     <tr class="background-tr">
       <td><%= category.id %></td>
+      <td>
+        <ul class="text-left">
+          <% category.books.each do |book| %>
+            <li><%= book.name %></li>
+          <% end %>
+        </ul>
+      </td>
       <td><%= category.name %></td>
       <td>
         <%= link_to edit_admins_category_path category do %>

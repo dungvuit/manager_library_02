@@ -35,6 +35,13 @@
                 <%= @author.publisher.name %>
               <% end %>
             </p>
+            <p><%= t "views.form_book.name" %>:&nbsp;
+              <%= link_to "#" do %>
+                <% @author.books.each do |book| %>
+                  <%= book.name %>
+                <% end %>
+              <% end %>
+            </p>
             <p>
               <%= link_to edit_admins_author_path @author do %>
                 <i class="glyphicon glyphicon-pencil"></i>

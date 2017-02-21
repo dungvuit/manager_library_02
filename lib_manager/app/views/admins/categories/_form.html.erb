@@ -11,6 +11,15 @@
           <%= f.text_field :name, class: "form-control" %>
         </div>
       </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :books, t("views.form_book.name"),
+            class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+        <%= f.select :book_ids, @supports.books %>
+        </div>
+      </div>
       <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
           <%= f.submit yield(:button_text), class: "btn btn-success" %>

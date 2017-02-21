@@ -18,6 +18,8 @@ class Author < ApplicationRecord
   has_many :follower_users, through: :passive_relationships,
     source_type: User.name, source: :ownerable
 
+  validates :publisher, presence: true
+
   class << self
     def to_csv options = {}
       CSV.generate options do |csv|
