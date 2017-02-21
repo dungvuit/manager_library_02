@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       log_in @user
-      flash[:success] = t "controllers.users.create_success"
+      flash.now[:success] = t "controllers.users.create_success"
       redirect_back_or @user
     else
       render :new
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = t "controllers.users.edit_success"
+      flash.now[:success] = t "controllers.users.edit_success"
       redirect_to @user
     else
       render :edit

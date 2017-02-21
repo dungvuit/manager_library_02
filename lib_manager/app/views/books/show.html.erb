@@ -9,12 +9,15 @@
         <% if logged_in? %>
           <div class="user-follow">
             <%= render "follow_form" %>
+            <div class="list-users-follower">
+              <%= render "book_follower" %>
+            </div>
           </div>
           <div class="borrow-book">
             <p><%= t "views.book.shows.borrow_this_book" %></p>
             <% if current_user.borrow_books.overdue.count < 3 %>
               <div class="form-borrow">
-                <div class="show-errors col-xs-4"></div>
+                <div class="show-errors"></div>
                 <div class="clearfix"></div>
                 <%= form_for :borrow_book, url: user_borrow_books_path(current_user),
                   remote: true do |f| %>
@@ -78,6 +81,10 @@
           <%= @book.language %>
         </li>
         <li>
+          <span><%= t "views.books.shows.number_page" %></span>
+          <%= @book.number_page %>
+        </li>
+        <li>
           <span><%= t "views.books.shows.description" %></span>
           <%= @book.description %>
         </li>
@@ -118,7 +125,7 @@
                   <%= f.hidden_field :book_id, value: @book.id %>
 
                   <%= f.label t "views.books.shows.leave_rate" %>
-                  <%= f.number_field :rate %>
+                  <%= f.select :rate, options_for_select(Settings.number_rating) %>
 
                   <%= f.submit t("views.books.shows.btn_rate"), class: "btn btn-default" %>
                 <% end %>

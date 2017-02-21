@@ -677,6 +677,25 @@
         }
         .user-activities {
           margin-top: 40px;
+          .user-follow {
+            .list-users-follower {
+              .block {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+                .image {
+                  display: inline-block;
+                }
+                .name {
+                  display: inline-block;
+                  padding-left: 30px;
+                }
+                &:hover {
+                  text-decoration: none;
+                  color: #5fcf80;
+                }
+              }
+            }
+          }
           .borrow-book {
             margin-top: 20px;
           }

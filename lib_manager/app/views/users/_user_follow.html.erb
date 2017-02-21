@@ -5,6 +5,6 @@
     user_path(@user, relationship: "followers"), remote: true %></li>
 </ul>
 <div class="list-user">
-  <%= render "users/block_user" %>
+  <%= render "users/block_user", users: @users %>
   <%= will_paginate @users %>
 </div>
