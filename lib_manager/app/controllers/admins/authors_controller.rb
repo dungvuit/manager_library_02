@@ -7,9 +7,14 @@ class Admins::AuthorsController < ApplicationController
   before_action :load_publishers, only: [:new, :edit]
 
   def index
-    @authors = Author.sort_by_create_at.paginate page: params[:page]
+    @authors = if params[:search].present?
+      Author.search_by_name(params[:search])
+    else
+      Author
+    end.sort_by_create_at.paginate page: params[:page]
     respond_to do |format|
       format.html
+      format.js
       format.xls {send_data @authors.to_csv(col_sep: "\t")}
     end
   end

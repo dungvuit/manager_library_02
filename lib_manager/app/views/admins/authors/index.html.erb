@@ -1,9 +1,9 @@
-<% provide :title, t("views.user.show_list_author") %>
+<% provide :title, t("views.users.show_list_author") %>
 <div class="main-content">
   <div class="container">
     <div class="info-manager">
       <div class="title-manager pull-left">
-        <h2><%= t "views.user.show_list_author" %></h2>
+        <h2><%= t "views.users.show_list_author" %></h2>
       </div>
       <div class="button-manager pull-right">
         <ul>
@@ -23,12 +23,23 @@
       </div>
       <div class="clearfix"></div>
     </div>
+    <div class="row wrap-search">
+      <div class="col-md-6 col-md-offset-6">
+        <%= form_tag admins_authors_path, method: :get, remote: true do %>
+          <div class="form-group pull-right">
+            <%= text_field_tag :search, params[:search], placeholder: t("views.input.value") %>
+            <%= submit_tag t("views.search"), class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <div class="table-responsive">
-      <%= will_paginate %> 
-        <table class="table table-bordered table-hover">
-          <%= render "list_author" %>
-        </table>
-      <%= will_paginate %> 
+      <table class="table table-bordered table-hover">
+        <%= render "list_author" %>
+      </table>
+      <div class="pagination">
+        <%= will_paginate %>
+      </div>
     </div>
   </div>
 </div>

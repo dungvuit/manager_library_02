@@ -128,6 +128,7 @@ en:
         edit_book: "Edit book"
         edit_publisher: "Edit publisher"
         edit_author: "Edit author"
+        edit_category: "Edit category"
         save: "Save changes"
         profile: "Update your profile"
       shows:
