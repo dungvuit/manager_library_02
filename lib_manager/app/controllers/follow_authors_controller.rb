@@ -1,8 +1,7 @@
 class FollowAuthorsController < ApplicationController
   include CheckObject
 
-  before_action :find_user, only: [:create, :destroy]
-  before_action :find_author, only: [:create, :destroy]
+  before_action :find_user, :find_author, :load_users, only: [:create, :destroy]
 
   def create
     @user.follow_author @author
@@ -29,5 +28,11 @@ class FollowAuthorsController < ApplicationController
   def find_author
     @author = Author.find_by id: (params[:author_id] || params[:id])
     check_object @author
+  end
+
+  def load_users
+    @author = Author.find_by id: (params[:author_id] || params[:id])
+    check_object @author
+    @users = @author.follower_users.pagination params[:page]
   end
 end

@@ -1,7 +1,7 @@
 class FollowUsersController < ApplicationController
   include CheckObject
 
-  before_action :find_user, only: [:index, :create, :destroy]
+  before_action :find_user, :load_user_following, only: [ :create, :destroy]
 
   def create
     current_user.following_user @user
@@ -23,5 +23,9 @@ class FollowUsersController < ApplicationController
   def find_user
     @user = User.find_by id: (params[:follower_id] || params[:id] || params[:user_id])
     check_object @user
+  end
+
+  def load_user_following
+    @users = current_user.following.pagination params[:page]
   end
 end
