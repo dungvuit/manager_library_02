@@ -17,7 +17,7 @@ class Admins::BorrowBooksController < ApplicationController
     if params[:status] == "borrowing"
       find_book
       if @book.amount == Settings.zero
-        flash[:danger] = t "controller.borrow_books.flashs.danger.warning"
+        flash.now[:danger] = t "controller.borrow_books.flashs.danger.warning"
       else
         @borrow = @borrow_book.update_attributes status: params[:status]
         type = @borrow ? "success" : "danger"
@@ -32,13 +32,13 @@ class Admins::BorrowBooksController < ApplicationController
       amount = @book.amount + Settings.borrow
       @book.update_attributes amount: amount
     end
-    flash[:"#{type}"] = t "controllers.borrow_books.flashs.#{type}.delete"
+    flash.now[:"#{type}"] = t "controllers.borrow_books.flashs.#{type}.delete"
     redirect_to admins_borrow_books_path
   end
 
   def destroy
     type = @borrow_book.destroy ? "success" : "danger"
-    flash[:"#{type}"] = t "controllers.borrow_books.flashs.#{type}.deleted"
+    flash.now[:"#{type}"] = t "controllers.borrow_books.flashs.#{type}.deleted"
     redirect_to admins_borrow_books_path
   end
 

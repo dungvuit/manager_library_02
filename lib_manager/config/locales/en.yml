@@ -186,6 +186,7 @@ en:
         amount: "Amount :"
         publisher_year: "Publisher Year :"
         language: "Language :"
+        number_page: "Number page :"
         leave: "Comment"
         comment: "Comment"
         dont_have_book: "Dont have this book in Library"
@@ -194,6 +195,9 @@ en:
         input_date: "Input Date Return :"
         button_borrow: "Borrow"
         user_cant_borrow_book: "You can borow this book. Because You overdue 3 time"
+        user_follower: "User Follower"
+        btn_close: "Close"
+        number_user_follower: "user is following this book"
     authors:
       btn_follow: "Follow Author"
       btn_unfollow: "Unfollw Author"

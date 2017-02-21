@@ -9,3 +9,4 @@ size_image_cover: "250x350"
 overdue: 3
 borrow: 1
 zero: 0
+number_rating: [1,2,3,4,5]
