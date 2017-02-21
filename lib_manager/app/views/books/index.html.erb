@@ -4,7 +4,8 @@
     <%= form_for :search, url: books_path, method: "get" do |f| %>
       <%= f.text_field :book_name, placeholder: t("views.books.indexs.input_name") %>
       <%= f.text_field :author_name, placeholder: t("views.books.indexs.input_author") %>
-      <%= f.text_field :category_name, placeholder: t("views.books.indexs.input_category") %>
+      <%= f.select :category_name, @categories,
+        include_blank: t("views.books.indexs.input_category") %>
       <%= f.text_field :publisher_name, placeholder: t("views.books.indexs.input_publisher") %>
       <%= f.submit t("views.books.indexs.button_search"), class: "btn btn-primary submit" %>
     <% end %>
@@ -15,8 +16,8 @@
         <li class="active"><%= t "views.books.all_category" %></li>
       <% end %>
         <% @categories.each do |category| %>
-          <%= link_to category_books_path(category), remote: true do %>
-            <li><%= category.name %></li>
+          <%= link_to books_path(search: {category_name: category}), remote: true do %>
+            <li><%= category %></li>
           <% end %>
         <% end %>
     </ul>

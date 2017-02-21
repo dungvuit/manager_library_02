@@ -31,6 +31,10 @@
               admins_borrow_book_path(borrow_book, status: :reject), method: :put %>
             </li>
             <li><%= button_to t("views.admins.borrow_books.shows.btn_return"),
+              admins_borrow_book_path(borrow_book, status: :return,
+              book_id: borrow_book.book.id), method: :put %>
+            </li>
+            <li><%= button_to t("views.admins.borrow_books.shows.btn_delete"),
               admins_borrow_book_path(borrow_book,
               book_id: borrow_book.book.id), method: :delete %>
             </li>
